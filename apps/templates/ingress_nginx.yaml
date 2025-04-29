@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-ingress
+  namespace: argocd 
+spec:
+  project: default
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: ingress-nginx  
+  source:
+    repoURL: https://charts.ingress-nginx.io
+    chart: ingress-nginx
+    targetRevision: "3.7.1" 
+    helm:
+      values: |
+        controller:
+          service:
+            externalIPs:
+              - "<EXTERNAL_IP>"   # Leave this blank or set your external IP as needed
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
