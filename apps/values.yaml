@@ -2,5 +2,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: git@github.com:jbauer12/gitopshomeserver.git
+    repoURL: https://github.com/jbauer12/gitopshomeserver
     targetRevision: HEAD

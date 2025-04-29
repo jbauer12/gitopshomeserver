@@ -19,10 +19,18 @@ port forward (proviosnally)
 ```bash
 kubectl port-forward service/argocd-server -n argocd 8080:443
 ```
-RC1ztRewNMQyveY1%
-G8hiyRZH7mLv5G0B
+### Install ArgoCD CLI
+```bash
+VERSION=$(curl -s https://api.github.com/repos/argoproj/argo-cd/releases/latest | grep tag_name | cut -d '"' -f 4)
+curl -sSL -o argocd "https://github.com/argoproj/argo-cd/releases/download/${VERSION}/argocd-$(uname -s)-amd64"
+chmod +x argocd
+sudo mv argocd /usr/local/bin/
+argocd login localhost:8080
+```
+
+
+
 ## TODO
 - Automate it with Terraform / Ansible
 
 
-RC1ztRewNMQyveY1%
