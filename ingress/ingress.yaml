@@ -4,9 +4,9 @@ metadata:
   name: argocd-ingress
   namespace: argocd
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"  
 spec:
-  ingressClassName: nginx 
+  ingressClassName: nginx
   rules:
     - host: argocd.mydomain.com
       http:
@@ -18,7 +18,3 @@ spec:
                 name: argocd-server
                 port:
                   number: 80
-  tls:
-    - hosts:
-        - argocd.mydomain.com
-      secretName: argocd-tls-secret
