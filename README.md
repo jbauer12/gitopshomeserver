@@ -27,7 +27,16 @@ chmod +x argocd
 sudo mv argocd /usr/local/bin/
 argocd login localhost:8080
 ```
-
+### Setup App of Apps
+docu: https://argo-cd.readthedocs.io/en/stable/operator-manual/cluster-bootstrapping/ 
+```bash
+argocd app create apps \
+    --dest-namespace argocd \
+    --dest-server https://kubernetes.default.svc \
+    --repo  https://github.com/jbauer12/gitopshomeserver \
+    --path apps
+argocd app sync apps  ;
+```
 
 
 ## TODO
