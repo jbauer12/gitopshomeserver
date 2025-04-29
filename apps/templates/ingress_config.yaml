@@ -12,6 +12,11 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
     path: ingress
+    helm:
+      values: |
+        controller:
+          service:
+            type: LoadBalancer
   syncPolicy:
     automated:
       prune: true
