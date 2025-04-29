@@ -18,7 +18,4 @@ spec:
                 name: argocd-server
                 port:
                   number: 443    # Ensure you're routing to the HTTPS port
-  tls:
-    - hosts:
-        - argocd.mydomain.com
-      secretName: argocd-tls-secret
+
