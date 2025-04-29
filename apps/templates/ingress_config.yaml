@@ -7,7 +7,7 @@ spec:
   project: default
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: nginx
+    namespace: nginx-ingress
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
