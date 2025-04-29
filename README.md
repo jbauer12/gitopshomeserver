@@ -1,4 +1,16 @@
 ## First Steps
+Install k3s and disable traefik
+```bash
+curl -sfL https://get.k3s.io | sh -s - --disable traefik
+sudo chown $(whoami):$(whoami) /etc/rancher/k3s/k3s.yaml
+```
+```bash
+curl https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz -o helm-v3.10.2-linux-amd64.tar.gz
+tar -zxvf helm-v3.10.2-linux-amd64.tar.gz
+sudo mv linux-amd64/helm /usr/local/bin/helm
+helm version
+```
+
 - Install ArgoCD 
 
 ```bash
@@ -7,8 +19,7 @@ kubectl create namespace argocd
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 
-helm install argocd argo/argo-cd -n argocd \
-  --set server.service.type=LoadBalancer
+helm install argocd argo/argo-cd -n argocd 
 ```
 ### Login to ArgoCD
 get initial password
@@ -18,7 +29,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 port forward (proviosnally)
 ```bash
 kubectl port-forward service/argocd-server -n argocd 8080:443
+
+1Om4SwVwuZtDXVQu
+
 ```
+Hnizf78AZYg-iVEH
 ### Install ArgoCD CLI
 ```bash
 VERSION=$(curl -s https://api.github.com/repos/argoproj/argo-cd/releases/latest | grep tag_name | cut -d '"' -f 4)
