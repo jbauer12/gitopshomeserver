@@ -19,7 +19,8 @@ kubectl create namespace argocd
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
 
-helm install argocd argo/argo-cd -n argocd 
+helm install argocd argo/argo-cd -n argocd --set server.insecure=true
+
 ```
 ### Login to ArgoCD
 get initial password
@@ -33,7 +34,7 @@ kubectl port-forward service/argocd-server -n argocd 8080:443
 1Om4SwVwuZtDXVQu
 
 ```
-Hnizf78AZYg-iVEH
+
 ### Install ArgoCD CLI
 ```bash
 VERSION=$(curl -s https://api.github.com/repos/argoproj/argo-cd/releases/latest | grep tag_name | cut -d '"' -f 4)
