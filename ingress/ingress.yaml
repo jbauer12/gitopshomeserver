@@ -19,7 +19,7 @@ spec:
             port:
               name: http
     host: argocd.mydomain.com
-  tls:
-  - hosts:
-    - argocd.mydomain.com
-    secretName: argocd-ingress-http
+ # tls:
+ # - hosts:
+ #   - argocd.mydomain.com
+ #   secretName: argocd-ingress-http
