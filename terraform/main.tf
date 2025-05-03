@@ -1,8 +1,15 @@
+resource "kubernetes_namespace" "argocd" {
+  metadata {
+    name = "argocd"
+  }
+}
+
 resource "helm_release" "argocd" {
   name       = "argocd"
-  namespace  = "argocd"
+  namespace  = kubernetes_namespace.argocd.metadata[0].name
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
+  version    = "5.51.6"  # Optional: specify chart version
 
   values = [
     yamlencode({
@@ -17,10 +24,14 @@ resource "helm_release" "argocd" {
       }
     })
   ]
+
+  depends_on = [kubernetes_namespace.argocd]
 }
 
 
+
 resource "argocd_application" "apps" {
+  depends_on = [helm_release.argocd]
   metadata {
     name      = "apps"
     namespace = "argocd"
