@@ -1,3 +1,9 @@
+## Development Setup for trying
+Installing k3d:
+```bash
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
+
 ## First Steps
 Install k3s and disable traefik
 ```bash
@@ -9,6 +15,7 @@ curl https://get.helm.sh/helm-v3.10.2-linux-amd64.tar.gz -o helm-v3.10.2-linux-a
 tar -zxvf helm-v3.10.2-linux-amd64.tar.gz
 sudo mv linux-amd64/helm /usr/local/bin/helm
 helm version
+
 ```
 
 - Install ArgoCD 
@@ -29,10 +36,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 port forward (proviosnally)
 ```bash
-kubectl port-forward service/argocd-server -n argocd 8080:443
+kubectl port-forward service/argocd-server -n argocd 8080:80
 
-1Om4SwVwuZtDXVQu
-
+LZzHtZA-QsxOsALP
 ```
 
 ### Install ArgoCD CLI
