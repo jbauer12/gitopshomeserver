@@ -3,6 +3,10 @@ Installing k3d:
 ```bash
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 ```
+start cluster
+```bash
+k3d cluster create --k3s-arg "--disable=traefik@server:0"
+``` 
 
 ## First Steps
 Install k3s and disable traefik
