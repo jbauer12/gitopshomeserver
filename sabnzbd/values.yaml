@@ -1,0 +1,9 @@
+spec:
+  port: 8080
+
+pvc:
+  download_size: 10Gi
+
+metadata:
+  namespace: servarr
+
