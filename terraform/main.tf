@@ -9,7 +9,7 @@ resource "helm_release" "argocd" {
   namespace  = kubernetes_namespace.argocd.metadata[0].name
   repository = "https://argoproj.github.io/argo-helm"
   chart      = "argo-cd"
-  version    = "5.51.6"  # Optional: specify chart version
+  version    = "5.51.6"
 
   values = [
     yamlencode({
