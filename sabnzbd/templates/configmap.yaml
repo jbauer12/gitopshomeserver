@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sabnzbd-configmap
-  namespace: your-namespace
+  namespace: {{ .Values.metadata.namespace }}
 data:
   sabnzbd.ini: |
     [misc]
