@@ -7,27 +7,10 @@ pvc:
 metadata:
   namespace: servarr
 
-config:
-  contents: |
-    [misc]
-    language = en
-    queue_limit = 20
-    port = 8080
-    api_key = $apiKey
-    nzb_key = $nzbKey
-    download_dir = Downloads/incomplete
-    complete_dir = Downloads/complete
-    # url_base = /sabnzbd # Set a base url
-    # [servers]
-    # [[yournewsreader.example.org]]
-    # name = yournewsreader.example.org
-    # displayname = yourNewsReader
-    # host = yournewsreader.example.org
-    # port = 563
-    # username = username
-    # password = $newsreaderServerPassword
-    # connections = 8
-    # ssl = 1
-    # ssl_verify = 2
-    # enable = 1
-    # priority = 0
+sabnzbd:
+  config:
+    newsreader: news.eweka.nl
+    username: d351ff44ee6781c0
+    password: password
+    apiKey: e225ee0c121c42d99de07d0a94bb8c44
+
