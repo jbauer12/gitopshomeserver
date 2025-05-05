@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sabnzbd-configmap
+  namespace: your-namespace
+data:
+  sabnzbd.ini: |
+    [misc]
+    host_whitelist = sabnzbd.example.com
