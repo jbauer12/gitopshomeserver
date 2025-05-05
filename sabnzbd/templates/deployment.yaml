@@ -26,13 +26,13 @@ spec:
             - name: TZ
               value: "UTC"
           volumeMounts:
-#            - name: config
-#              mountPath: /config
-            - name: downloads
-              mountPath: /downloads
-            - name: sabnzbd-configmap
-              mountPath: /config/sabnzbd.ini
-              subPath: sabnzbd.ini
+           - name: config
+             mountPath: /config
+           - name: downloads
+             mountPath: /downloads
+            # - name: sabnzbd-configmap
+            #   mountPath: /config/sabnzbd.ini
+            #   subPath: sabnzbd.ini
       volumes:
 #        - name: config
 #          persistentVolumeClaim:
@@ -40,7 +40,7 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: sabnzbd-downloads
-        - name: sabnzbd-configmap
-          configMap:
-            name: sabnzbd-configmap
+        # - name: sabnzbd-configmap
+        #   configMap:
+        #     name: sabnzbd-configmap
 
