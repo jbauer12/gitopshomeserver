@@ -34,9 +34,9 @@ spec:
             #   mountPath: /config/sabnzbd.ini
             #   subPath: sabnzbd.ini
       volumes:
-#        - name: config
-#          persistentVolumeClaim:
-#            claimName: sabnzbd-config
+        - name: config
+          persistentVolumeClaim:
+            claimName: sabnzbd-config
         - name: downloads
           persistentVolumeClaim:
             claimName: sabnzbd-downloads
