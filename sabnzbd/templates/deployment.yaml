@@ -25,8 +25,6 @@ spec:
               value: "1000"
             - name: TZ
               value: "UTC"
-            - name: host_whitelist
-              value: "sabnzbd.example.com"
           volumeMounts:
           #  - name: config
           #    mountPath: /config
