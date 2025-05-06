@@ -25,11 +25,11 @@ data:
     auto_browser = 1
     language = en
     enable_https_verification = 1
-    host = ::
+    host = news.eweka.nl
     port = 8080
     https_port = ""
-    username = ""
-    password = ""
+    username = d351ff44ee6781c0
+    password = {{ .Env.password }}
     bandwidth_max = ""
     cache_limit = 1G
     web_dir = Glitter
@@ -39,7 +39,7 @@ data:
     https_chain = ""
     enable_https = 0
     inet_exposure = 0
-    api_key = e225ee0c121c42d99de07d0a94bb8c44
+    api_key = {{ .Env.apiKey }}
     nzb_key = 98eded163e3e48dd8175df7fb17e22f3
     socks5_proxy_url = ""
     permissions = ""
