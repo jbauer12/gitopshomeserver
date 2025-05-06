@@ -86,7 +86,10 @@ curl -OL "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KU
 tar -xvzf kubeseal-${KUBESEAL_VERSION}-linux-amd64.tar.gz kubeseal
 sudo install -m 755 kubeseal /usr/local/bin/kubeseal
 ```
-
+Now it can be used with this command:
+```bash
+kubeseal -f example_secret.yaml -w mysealedsecret.yaml --controller-name sealed-secrets --controller-namespace kube-system
+```
 
 
 

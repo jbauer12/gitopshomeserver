@@ -11,6 +11,5 @@ sabnzbd:
   config:
     newsreader: news.eweka.nl
     username: d351ff44ee6781c0
-    password: password
-    apiKey: e225ee0c121c42d99de07d0a94bb8c44
+
 
