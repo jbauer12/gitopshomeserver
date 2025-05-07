@@ -18,32 +18,35 @@ spec:
           image: linuxserver/sabnzbd:latest
           ports:
             - containerPort: 8080
-          env:
-            - name: PUID
-              value: "1000"
-            - name: PGID
-              value: "1000"
-            - name: TZ
-              value: "UTC"
-          envFrom:
-            - secretRef:
-                name: eweka-secret
           volumeMounts:
-          - name: config
-            mountPath: /config
-           - name: downloads
-             mountPath: /downloads
-           - name: sabnzbd-configmap
-             mountPath: /config/sabnzbd.ini
-             subPath: sabnzbd.ini
+            - name: config
+              mountPath: /config
+        # Add other volumeMounts here
+      initContainers:
+        - name: init-sabnzbd-config
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              echo "__version__ = 19" > /config/sabnzbd.ini
+              echo "[misc]" >> /config/sabnzbd.ini
+              echo "username = $USERNAME" >> /config/sabnzbd.ini
+              echo "password = $PASSWORD" >> /config/sabnzbd.ini
+          env:
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: username
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: password
+          volumeMounts:
+            - name: config
+              mountPath: /config
       volumes:
         - name: config
-          persistentVolumeClaim:
-            claimName: sabnzbd-config
-        - name: downloads
-          persistentVolumeClaim:
-            claimName: sabnzbd-downloads
-        - name: sabnzbd-configmap
-          configMap:
-            name: sabnzbd-configmap
-
+          emptyDir: {}
