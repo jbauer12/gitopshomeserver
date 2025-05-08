@@ -31,15 +31,9 @@ spec:
             - |
               echo "__version__ = 19" > /config/sabnzbd.ini
               echo "[misc]" >> /config/sabnzbd.ini
-              echo "username = $USERNAME" >> /config/sabnzbd.ini
               echo "password = $PASSWORD" >> /config/sabnzbd.ini
               cat /config/sabnzbd-configmap.ini >> /config/sabnzbd.ini
           env:
-            - name: USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: sabnzbd-secret
-                  key: username
             - name: PASSWORD
               valueFrom:
                 secretKeyRef:
