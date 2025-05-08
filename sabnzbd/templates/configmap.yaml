@@ -5,13 +5,15 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 data:
   sabnzbd.ini: |
+    [misc]
+    password = ""
     __encoding__ = utf-8
     config_conversion_version = 4
     helpful_warnings = 1
     queue_complete = ""
     queue_complete_pers = 0
     bandwidth_perc = 100
-    refresh_rate = 0
+    refresh_rate = 1
     interface_settings = ""
     queue_limit = 20
     config_lock = 0
@@ -23,10 +25,10 @@ data:
     auto_browser = 1
     language = en
     enable_https_verification = 1
-    host = news.eweka.nl
+    host = ::
     port = 8080
     https_port = ""
-    username = d351ff44ee6781c0
+    username = ""
     bandwidth_max = ""
     cache_limit = 1G
     web_dir = Glitter
@@ -93,7 +95,7 @@ data:
     new_nzb_on_failure = 0
     history_retention = ""
     history_retention_option = all
-    history_retention_number = 0
+    history_retention_number = 1
     quota_size = ""
     quota_day = ""
     quota_resume = 0
@@ -321,3 +323,23 @@ data:
     nscript_prio_error = 0
     nscript_prio_queue_done = 0
     nscript_prio_other = 1
+    [servers]
+    [[news.eweka.nl]]
+    name = news.eweka.nl
+    displayname = news.eweka.nl
+    host = news.eweka.nl
+    port = 563
+    timeout = 60
+    connections = 8
+    ssl = 1
+    ssl_verify = 2
+    ssl_ciphers = ""
+    enable = 1
+    required = 0
+    optional = 0
+    retention = 0
+    expire_date = ""
+    quota = ""
+    usage_at_start = 0
+    priority = 0
+    notes = ""
