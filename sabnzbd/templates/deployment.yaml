@@ -35,7 +35,6 @@ spec:
               cat /config/sabnzbd-configmap.ini >> /config/sabnzbd.ini
               echo "password = $PASSWORD" >> /config/sabnzbd.ini
               echo "username = $USERNAME" >> /config/sabnzbd.ini
-
           env:
             - name: APIKEY
               valueFrom:
