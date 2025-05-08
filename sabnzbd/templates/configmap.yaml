@@ -6,7 +6,6 @@ metadata:
 data:
   sabnzbd.ini: |
     __encoding__ = utf-8
-    [misc]
     config_conversion_version = 4
     helpful_warnings = 1
     queue_complete = ""
