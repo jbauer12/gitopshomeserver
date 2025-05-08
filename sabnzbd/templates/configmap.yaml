@@ -5,7 +5,6 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 data:
   sabnzbd.ini: |
-    __version__ = 19
     __encoding__ = utf-8
     [misc]
     config_conversion_version = 4
