@@ -33,6 +33,7 @@ spec:
               echo "[misc]" >> /config/sabnzbd.ini
               echo "username = $USERNAME" >> /config/sabnzbd.ini
               echo "password = $PASSWORD" >> /config/sabnzbd.ini
+              cat /config/sabnzbd-configmap.ini >> /config/sabnzbd.ini
           env:
             - name: USERNAME
               valueFrom:
@@ -47,6 +48,12 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
+            - name: sabnzbd-configmap
+              mountPath: /config/sabnzbd-configmap.ini
+              subPath: sabnzbd.ini
       volumes:
         - name: config
           emptyDir: {}
+        - name: sabnzbd-configmap
+          configMap:
+            name: sabnzbd-configmap
