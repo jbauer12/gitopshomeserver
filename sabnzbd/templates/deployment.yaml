@@ -26,6 +26,8 @@ spec:
           env:
             - name: VPN_SERVICE_PROVIDER
               value: "protonvpn"
+            - name: DNS_KEEP_NAMESERVER
+              value: "on"
             - name: OPENVPN_USER
               valueFrom:
                 secretKeyRef:
