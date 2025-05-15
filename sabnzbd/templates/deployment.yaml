@@ -26,7 +26,7 @@ spec:
           env:
             - name: VPN_SERVICE_PROVIDER
               value: "protonvpn"
-            - name: DNS_SERVER
+            - name: DNS_ADDRESS
               value: 192.168.178.49
             - name: OPENVPN_USER
               valueFrom:
