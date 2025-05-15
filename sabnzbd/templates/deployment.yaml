@@ -14,6 +14,30 @@ spec:
         app: sabnzbd
     spec:
       containers:
+        - image: ghcr.io/qdm12/gluetun:latest
+          name: gluetun
+          imagePullPolicy: Always
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]
+          ports:
+            - containerPort: 9091
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              value: "protonvpn"
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: openvpnUsername
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: openvpnPassword
+
+            - name: FIREWALL_INPUT_PORTS
+              value: "8080"
         - name: sabnzbd
           image: linuxserver/sabnzbd:latest
           ports:
@@ -63,3 +87,44 @@ spec:
         - name: sabnzbd-configmap
           configMap:
             name: sabnzbd-configmap
+
+
+
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   labels:
+#     app: myapp
+#   name: myapp
+# spec:
+#   selector:
+#     matchLabels:
+#       app: myapp
+#   template:
+#     metadata:
+#       labels:
+#         app: myapp
+#     spec:
+#       containers:
+#         - image: myapp:latest
+#           name: myapp
+
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     app: myapp
+#   name: myapp
+# spec:
+#   selector:
+#     app: myapp
+#   type: NodePort
+#   ports:
+#     - name: webserver
+#       port: 9091
+#       targetPort: 9091
+#       protocol: TCP
+#   externalIPs:
+#     - 192.168.1.99
