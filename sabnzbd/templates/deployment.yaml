@@ -14,8 +14,9 @@ spec:
         app: sabnzbd
     spec:
       containers:
-        - image: ghcr.io/qdm12/gluetun:latest
-          name: gluetun
+        - name: gluetun
+ 
+          image: ghcr.io/qdm12/gluetun:latest
           imagePullPolicy: Always
           securityContext:
             capabilities:
