@@ -14,6 +14,22 @@ spec:
         app: sabnzbd
     spec:
       containers:
+        - name: prowlarr
+          image: linuxserver/prowlarr:latest
+          ports:
+          - containerPort: 9696
+          volumeMounts:
+          - name: configProwlarr
+            mountPath: /config
+          - name: downloadsProwlarr
+            mountPath: /downloads
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "America/New_York"
         - name: gluetun
           image: ghcr.io/qdm12/gluetun:latest
           imagePullPolicy: Always
@@ -90,3 +106,11 @@ spec:
         - name: sabnzbd-configmap
           configMap:
             name: sabnzbd-configmap
+        - name: configProwlarr
+          hostPath:
+            path: /data/prowlarr/config
+            type: DirectoryOrCreate
+        - name: downloadsProwlarr
+          hostPath:
+            path: /data/prowlarr/downloads
+            type: DirectoryOrCreate

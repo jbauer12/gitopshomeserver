@@ -1,6 +1,0 @@
-spec:
-  port: 9696
-
-
-metadata:
-  namespace: servarr
