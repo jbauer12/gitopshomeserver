@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: radarr
-  namespace: {{ .Values.metadata.namespace }}
+  namespace: servarr
 spec:
   replicas: 1
   selector:
@@ -34,14 +34,14 @@ spec:
           value: "America/New_York"
       volumes:
       - name: config
-        emptyDir: {}
-        # persistentVolumeClaim:
-        #   claimName: radarr-config-pvc
+        hostPath:
+          path: /data/radarr/config
+          type: DirectoryOrCreate
       - name: movies
-        emptyDir: {}
-        # persistentVolumeClaim:
-        #   claimName: radarr-movies-pvc
+        hostPath:
+          path: /data/radarr/movies
+          type: DirectoryOrCreate
       - name: downloads
-        emptyDir: {}
-        # persistentVolumeClaim:
-        #   claimName: radarr-downloads-pvc
+        hostPath:
+          path: /data/radarr/downloads
+          type: DirectoryOrCreate

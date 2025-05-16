@@ -83,9 +83,10 @@ spec:
               mountPath: /config/sabnzbd-configmap.ini
               subPath: sabnzbd.ini
       volumes:
-        #TODO Change to persistent volume claim
         - name: config
-          emptyDir: {}
+          hostPath:
+            path: /data/sabnzbd/config
+            type: DirectoryOrCreate
         - name: sabnzbd-configmap
           configMap:
             name: sabnzbd-configmap
