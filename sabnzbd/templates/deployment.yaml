@@ -15,7 +15,6 @@ spec:
     spec:
       containers:
         - name: gluetun
- 
           image: ghcr.io/qdm12/gluetun:latest
           imagePullPolicy: Always
           securityContext:
@@ -84,6 +83,7 @@ spec:
               mountPath: /config/sabnzbd-configmap.ini
               subPath: sabnzbd.ini
       volumes:
+        #TODO Change to persistent volume claim
         - name: config
           emptyDir: {}
         - name: sabnzbd-configmap
