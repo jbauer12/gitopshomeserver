@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: prowlarr
+  name: radarr
   namespace: {{ .Values.metadata.namespace }}
 spec:
   selector:
-    app: prowlarr
+    app: radarr
   ports:
     - protocol: TCP
       port: 80
