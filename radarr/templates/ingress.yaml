@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: radarr-ingress
+  name: sonarr-ingress
   namespace: {{ .Values.metadata.namespace }}
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   ingressClassName: nginx
   rules:
-  - host: radarr.mydomain.com
+  - host: sonarr.mydomain.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: radarr
+            name: sonarr
             port:
               number: 80
