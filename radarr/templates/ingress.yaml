@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: sonarr.mydomain.com
+  - host: radarr.mydomain.com
     http:
       paths:
       - path: /
