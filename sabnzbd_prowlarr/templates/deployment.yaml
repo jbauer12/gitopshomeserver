@@ -19,9 +19,9 @@ spec:
           ports:
           - containerPort: 9696
           volumeMounts:
-          - name: configProwlarr
+          - name: configprowlarr
             mountPath: /config
-          - name: downloadsProwlarr
+          - name: downloadsprowlarr
             mountPath: /downloads
           env:
           - name: PUID
@@ -106,11 +106,11 @@ spec:
         - name: sabnzbd-configmap
           configMap:
             name: sabnzbd-configmap
-        - name: configProwlarr
+        - name: configprowlarr
           hostPath:
             path: /data/prowlarr/config
             type: DirectoryOrCreate
-        - name: downloadsProwlarr
+        - name: downloadsprowlarr
           hostPath:
             path: /data/prowlarr/downloads
             type: DirectoryOrCreate
