@@ -27,7 +27,7 @@ spec:
             - name: VPN_SERVICE_PROVIDER
               value: "protonvpn"
             - name: DNS_ADDRESS
-              value: 8.8.8.8
+              value: 1.1.1.1
             - name: OPENVPN_USER
               valueFrom:
                 secretKeyRef:
