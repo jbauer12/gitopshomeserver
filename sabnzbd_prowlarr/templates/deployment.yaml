@@ -58,7 +58,6 @@ spec:
           volumeMounts:
             - name: iptables-post-rules
               mountPath: /iptables
-              readOnly: true
               subPath: post-rules.txt
         - name: sabnzbd
           image: linuxserver/sabnzbd:latest

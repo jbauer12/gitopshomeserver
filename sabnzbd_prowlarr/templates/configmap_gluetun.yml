@@ -5,7 +5,6 @@ metadata:
   namespace: servarr
 data:
   post-rules.txt: |
-    iptables -A OUTPUT -d 10.42.0.0/16 -j ACCEPT
-    iptables -A OUTPUT -d 10.43.0.0/16 -j ACCEPT     
-    iptables -A OUTPUT -p udp --dport 53 -j ACCEPT     
-    iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT     
+    iptables -A INPUT -i eth0 -s 0.0.0.0/0 -d 192.168.2.0/24 -p udp --sport 1197 -j ACCEPT
+    iptables -A INPUT -i eth0 -s 0.0.0.0/0 -d 192.168.2.0/24 -p tcp --sport 1197 -j ACCEPT
+   
