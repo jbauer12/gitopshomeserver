@@ -6,6 +6,12 @@ curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 start cluster
 ```bash
 k3d cluster create --k3s-arg "--disable=traefik@server:0"
+#or multi node cluster
+k3d cluster create gitopshomeserver \
+  --servers 1 \
+  --agents 3 \
+  --k3s-arg "--disable=traefik@server:0"
+
 ``` 
 
 ## First Steps
@@ -93,7 +99,19 @@ kubeseal -f example_secret.yaml -w mysealedsecret.yaml --controller-name sealed-
 
 
 
+##
+
+
+
 ## TODO
 - Automate it with Terraform / Ansible
+- Write documentation how to use k3d with multi-cluster
+- Work on terraform script to support local setup!
+
+Implement:
+- Longhorn
+- Kube-VIP
+- cert-manager
+- Prometheus & Grafana
 
 
