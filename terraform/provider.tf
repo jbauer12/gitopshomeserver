@@ -4,6 +4,9 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "~> 2.0"    
     }
+    pihole = {
+      source = "ryanwholey/pihole"
+    }
     ssh = {
       source = "loafoe/ssh"
       version = "2.7.0"
@@ -37,4 +40,10 @@ provider "argocd" {
   username     = "admin"
   password     = var.argocd_admin_password_decrypted
   plain_text   = true
+}
+
+
+provider "pihole" {
+  url      = "http://192.168.178.49/" # PIHOLE_URL
+  password = var.pihole_password         # PIHOLE_PASSWORD
 }

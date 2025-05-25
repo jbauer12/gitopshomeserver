@@ -4,6 +4,11 @@ variable "argocd_admin_password" {
   sensitive   = true
   description = "Bcrypt-hashed ArgoCD admin password"
 }
+variable "pihole_password" {
+  type        = string
+  sensitive   = true
+  description = "Pihole password"
+}
 
 variable "argocd_admin_password_decrypted" {
   type        = string
