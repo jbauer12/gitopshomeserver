@@ -1,10 +1,12 @@
 resource "kubernetes_namespace" "argocd" {
+  depends_on = [null_resource.install_k3s_master, null_resource.join_k3s_worker]
   metadata {
     name = "argocd"
   }
 }
 
 resource "helm_release" "argocd" {
+  depends_on = [null_resource.install_k3s_master, null_resource.join_k3s_worker, kubernetes_namespace.argocd]
   name       = "argocd"
   namespace  = kubernetes_namespace.argocd.metadata[0].name
   repository = "https://argoproj.github.io/argo-helm"
@@ -24,14 +26,12 @@ resource "helm_release" "argocd" {
       }
     })
   ]
-
-  depends_on = [kubernetes_namespace.argocd]
 }
 
 
 
 resource "argocd_application" "apps" {
-  depends_on = [helm_release.argocd]
+  depends_on = [null_resource.install_k3s_master, null_resource.join_k3s_worker, helm_release.argocd]
   metadata {
     name      = "apps"
     namespace = "argocd"
