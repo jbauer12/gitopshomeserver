@@ -49,19 +49,3 @@ resource "helm_release" "longhorn" {
     })
   ]
 }
-resource "kubernetes_storage_class" "longhorn" {
-  metadata {
-    name = "longhorn"
-  }
-
-  storage_provisioner = "driver.longhorn.io"
-
-  allow_volume_expansion = true
-
-  parameters = {
-    numberOfReplicas     = "3"
-    staleReplicaTimeout  = "2880"
-    fromBackup           = ""
-    fsType               = "ext4"
-  }
-}
