@@ -55,16 +55,12 @@ spec:
                   key: openvpnPassword
             - name: FIREWALL_INPUT_PORTS
               value: 8080,9091
-          # volumeMounts:
-          #   - name: iptables-post-rules
-          #     mountPath: /iptables/post-rules.txt
-          #     subPath: post-rules.txt
         - name: sabnzbd
           image: linuxserver/sabnzbd:latest
           ports:
             - containerPort: 8080
           volumeMounts:
-            - name: config
+            - name: movies
               mountPath: /config
       initContainers:
         - name: init-sabnzbd-config
@@ -102,14 +98,12 @@ spec:
             - name: sabnzbd-configmap
               mountPath: /config/sabnzbd-configmap.ini
               subPath: sabnzbd.ini
+              
       volumes:
         - name: iptables-post-rules
           configMap:
             name: gluetun-iptables-post-rules
-        - name: config
-          hostPath:
-            path: /data/sabnzbd/config
-            type: DirectoryOrCreate
+
         - name: sabnzbd-configmap
           configMap:
             name: sabnzbd-configmap
@@ -121,3 +115,8 @@ spec:
           hostPath:
             path: /data/prowlarr/downloads
             type: DirectoryOrCreate
+        - name: movies
+          persistentVolumeClaim:
+          claimName: longhorn-movies
+
+

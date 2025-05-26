@@ -21,3 +21,28 @@
 #   resources:
 #     requests:
 #       storage: {{ .Values.pvc.download_size }}
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-movies
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: longhorn-series
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 20Gi
