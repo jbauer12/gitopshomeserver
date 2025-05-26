@@ -10,6 +10,17 @@ variable "pihole_password" {
   description = "Pihole password"
 }
 
+variable "longhorn_backup_smb_username" {
+  type        = string
+  sensitive   = true
+  description = "SMB username for Longhorn backup"
+}
+variable "longhorn_backup_smb_password" {
+  type        = string
+  sensitive   = true
+  description = "SMB password for Longhorn backup"
+}
+
 variable "argocd_admin_password_decrypted" {
   type        = string
   sensitive   = true

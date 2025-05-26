@@ -32,10 +32,6 @@ k3sup install \
 EOT
     interpreter = ["/bin/bash", "-c"]
   }
-
-  triggers = {
-    always_run = timestamp()
-  }
 }
 
 resource "null_resource" "join_k3s_worker" {
@@ -52,7 +48,4 @@ k3sup join \
 EOT
     interpreter = ["/bin/bash", "-c"]
   }
-}
-output "test_key" {
-  value = file("/home/jonas/.ssh/id_rsa")
 }
