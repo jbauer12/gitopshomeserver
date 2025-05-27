@@ -69,6 +69,9 @@ spec:
           volumeMounts:
             - name: longhorn-sabnzbd
               mountPath: /config
+            - name: sabnzbd-configmap
+              mountPath: /config/sabnzbd-configmap.ini
+              subPath: sabnzbd.ini
       # initContainers:
       #   - name: init-sabnzbd-config
       #     image: busybox
