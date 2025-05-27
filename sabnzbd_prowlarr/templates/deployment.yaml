@@ -100,8 +100,7 @@ spec:
             - name: sabnzbd-configmap
               mountPath: /tmp/configmap
             - name: longhorn-sabnzbd-config
-              mountPath: /config/sabnzbd.ini
-              subPath: sabnzbd.ini
+              mountPath: /config
 
       volumes:
         - name: sabnzbd-configmap
