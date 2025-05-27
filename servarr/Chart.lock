@@ -1,0 +1,12 @@
+dependencies:
+- name: radarr
+  repository: file://charts/radarr
+  version: 0.1.0
+- name: sonarr
+  repository: file://charts/sonarr
+  version: 0.1.0
+- name: sabnzbd_prowlarr
+  repository: file://charts/sabnzbd_prowlarr
+  version: 0.1.0
+digest: sha256:5ff736a3240280d915a7a6aeda62e3862586d5b7eee457eb51562328d1b446bc
+generated: "2025-05-27T22:54:09.35871371+02:00"
