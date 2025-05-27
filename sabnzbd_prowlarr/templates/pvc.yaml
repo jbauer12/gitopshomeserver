@@ -16,7 +16,7 @@ metadata:
   name: longhorn-sabnzbd-config
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: longhorn
   resources:
     requests:
