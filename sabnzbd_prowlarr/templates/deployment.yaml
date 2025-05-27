@@ -112,20 +112,18 @@ spec:
               - secret:
                   name: sabnzbd-secret
 
-        - name: sabnzbd-generated-config
-          persistentVolumeClaim:
-            claimName: longhorn-sabnzbd-config  # must be ReadWriteOnce and bound to a node
-
         - name: configprowlarr
-          hostPath:
-            path: /data/prowlarr/config
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: longhorn-prowlarr-config
 
         - name: downloadsprowlarr
-          hostPath:
-            path: /data/prowlarr/downloads
-            type: DirectoryOrCreate
+          persistentVolumeClaim:
+            claimName: longhorn-prowlarr-downloads
 
         - name: longhorn-sabnzbd
           persistentVolumeClaim:
             claimName: longhorn-sabnzbd
+
+        - name: sabnzbd-generated-config
+          persistentVolumeClaim:
+            claimName: longhorn-sabnzbd-config
