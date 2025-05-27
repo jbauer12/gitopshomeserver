@@ -40,9 +40,9 @@ data:
     nzb_key = 98eded163e3e48dd8175df7fb17e22f3
     socks5_proxy_url = ""
     permissions = ""
-    download_dir = Downloads/incomplete
+    download_dir = /Downloads/complete
     download_free = ""
-    complete_dir = Downloads/complete
+    complete_dir = /Downloads/complete
     complete_free = ""
     fulldisk_autoresume = 0
     script_dir = ""
