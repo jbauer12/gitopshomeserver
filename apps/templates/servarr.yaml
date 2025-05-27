@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
-    path: sabnzbd_prowlarr
+    path: servarr
   syncPolicy:
     automated:
       prune: true

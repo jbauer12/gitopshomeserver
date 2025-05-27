@@ -1,5 +1,0 @@
-spec:
-  port: 8989
-
-metadata:
-  namespace: servarr
