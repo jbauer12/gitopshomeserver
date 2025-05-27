@@ -18,11 +18,18 @@ spec:
           image: linuxserver/prowlarr:latest
           ports:
           - containerPort: 9696
+
+
+
           volumeMounts:
           - name: configprowlarr
             mountPath: /config
           - name: downloadsprowlarr
             mountPath: /downloads
+
+
+
+
           env:
           - name: PUID
             value: "1000"
@@ -60,44 +67,44 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-            - name: movies
+            - name: longhorn-sabnzbd
               mountPath: /config
-      initContainers:
-        - name: init-sabnzbd-config
-          image: busybox
-          command:
-            - sh
-            - -c
-            - |
-              echo "__version__ = 19" > /config/sabnzbd.ini
-              echo "__encoding__ = utf-8" >> /config/sabnzbd.ini
-              echo "[misc]" >> /config/sabnzbd.ini
-              echo "api_key = $APIKEY" >> /config/sabnzbd.ini
-              cat /config/sabnzbd-configmap.ini >> /config/sabnzbd.ini
-              echo "password = $PASSWORD" >> /config/sabnzbd.ini
-              echo "username = $USERNAME" >> /config/sabnzbd.ini
-          env:
-            - name: APIKEY
-              valueFrom:
-                secretKeyRef:
-                  name: sabnzbd-secret
-                  key: apiKey
-            - name: USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: sabnzbd-secret
-                  key: username
-            - name: PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: sabnzbd-secret
-                  key: password
-          volumeMounts:
-            - name: config
-              mountPath: /config
-            - name: sabnzbd-configmap
-              mountPath: /config/sabnzbd-configmap.ini
-              subPath: sabnzbd.ini
+      # initContainers:
+      #   - name: init-sabnzbd-config
+      #     image: busybox
+      #     command:
+      #       - sh
+      #       - -c
+      #       - |
+      #         echo "__version__ = 19" > /config/sabnzbd.ini
+      #         echo "__encoding__ = utf-8" >> /config/sabnzbd.ini
+      #         echo "[misc]" >> /config/sabnzbd.ini
+      #         echo "api_key = $APIKEY" >> /config/sabnzbd.ini
+      #         cat /config/sabnzbd-configmap.ini >> /config/sabnzbd.ini
+      #         echo "password = $PASSWORD" >> /config/sabnzbd.ini
+      #         echo "username = $USERNAME" >> /config/sabnzbd.ini
+      #     env:
+      #       - name: APIKEY
+      #         valueFrom:
+      #           secretKeyRef:
+      #             name: sabnzbd-secret
+      #             key: apiKey
+      #       - name: USERNAME
+      #         valueFrom:
+      #           secretKeyRef:
+      #             name: sabnzbd-secret
+      #             key: username
+      #       - name: PASSWORD
+      #         valueFrom:
+      #           secretKeyRef:
+      #             name: sabnzbd-secret
+      #             key: password
+      #     volumeMounts:
+      #       - name: movies
+      #         mountPath: /config
+      #       - name: sabnzbd-configmap
+      #         mountPath: /config/sabnzbd-configmap.ini
+      #         subPath: sabnzbd.ini
               
       volumes:
         - name: iptables-post-rules
@@ -115,8 +122,8 @@ spec:
           hostPath:
             path: /data/prowlarr/downloads
             type: DirectoryOrCreate
-        - name: movies
+        - name: longhorn-sabnzbd
           persistentVolumeClaim:
-          claimName: longhorn-movies
+          claimName: longhorn-sabnzbd
 
 
