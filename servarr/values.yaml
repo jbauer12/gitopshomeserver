@@ -3,7 +3,8 @@ metadata:
 
 global:
   here: paste your global values here
-
+service:
+  port: 80 
 
 # radarr:
 
