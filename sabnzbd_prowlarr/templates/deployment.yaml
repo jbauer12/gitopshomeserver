@@ -67,11 +67,11 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-            - name: longhorn-sabnzbd
-              mountPath: /config
             - name: sabnzbd-configmap
               mountPath: /config/sabnzbd-configmap.ini
               subPath: sabnzbd.ini
+            - name: longhorn-sabnzbd
+              mountPath: /config
       # initContainers:
       #   - name: init-sabnzbd-config
       #     image: busybox
