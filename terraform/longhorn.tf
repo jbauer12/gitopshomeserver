@@ -49,3 +49,22 @@ resource "helm_release" "longhorn" {
     })
   ]
 }
+
+resource "kubernetes_storage_class" "longhorn_rwx" {
+  metadata {
+    name = "longhorn-rwx"
+  }
+
+  storage_provisioner = "driver.longhorn.io"
+
+  parameters = {
+    numberOfReplicas = "3"
+    migratable       = "false"   # disable migration for RWX
+    fsType           = "ext4"
+    nfsOptions       = "vers=4.1,soft,timeo=600,retrans=5"
+  }
+
+  allow_volume_expansion = true
+
+  volume_binding_mode = "Immediate"
+}
