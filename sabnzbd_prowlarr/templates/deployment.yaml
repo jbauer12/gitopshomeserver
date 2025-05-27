@@ -115,8 +115,9 @@ spec:
             type: DirectoryOrCreate
         - name: longhorn-sabnzbd
           persistentVolumeClaim:
-          claimName: longhorn-sabnzbd
+            claimName: longhorn-sabnzbd
         - name: longhorn-sabnzbd-config
           persistentVolumeClaim:
-          claimName: longhorn-sabnzbd-config
+            claimName: longhorn-sabnzbd-config
+
 
