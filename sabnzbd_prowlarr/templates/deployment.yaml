@@ -69,7 +69,7 @@ spec:
           volumeMounts:
             - name: sabnzbd-configmap
               mountPath: /config/sabnzbd-configmap.ini
-              subPath: sabnzbd.ini
+              subPath: sabnzbd-configmap.ini
             - name: longhorn-sabnzbd
               mountPath: /Downloads
       initContainers:
