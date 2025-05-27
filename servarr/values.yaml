@@ -5,8 +5,8 @@ global:
   here: paste your global values here
 
 
-radarr:
+# radarr:
 
-sonarr:
+# sonarr:
 
-sabnzbd_prowlarr
+# sabnzbd_prowlarr: 
