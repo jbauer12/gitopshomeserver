@@ -4,11 +4,11 @@ version: 0.1.0
 
 dependencies:
   - name: radarr
-    version: 1.0.0
+    version: 0.1.0
     repository: "file://charts/radarr"
   - name: sonarr
-    version: 1.0.0
+    version: 0.1.0
     repository: "file://charts/sonarr"
   - name: sabnzbd_prowlarr
-    version: 1.0.0
+    version: 0.1.0
     repository: "file://charts/sabnzbd_prowlarr"
