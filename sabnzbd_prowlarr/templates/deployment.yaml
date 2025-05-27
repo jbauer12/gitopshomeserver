@@ -69,7 +69,7 @@ spec:
           volumeMounts:
             - name: longhorn-sabnzbd
               mountPath: /Downloads
-            - name: longhorn-sabnzbd_config
+            - name: longhorn-sabnzbd-config
               mountPath: /config
       initContainers:
         - name: init-sabnzbd-config
@@ -104,7 +104,7 @@ spec:
           volumeMounts:
             - name: sabnzbd-configmap
               mountPath: /tmp/configmap
-            - name: longhorn-sabnzbd_config
+            - name: longhorn-sabnzbd-config
               mountPath: /config
       volumes:
         - name: sabnzbd-configmap
@@ -123,5 +123,5 @@ spec:
           claimName: longhorn-sabnzbd
         - name: sabnzbd-config
           persistentVolumeClaim:
-          claimName: longhorn-sabnzbd_config
+          claimName: longhorn-sabnzbd-config
 
