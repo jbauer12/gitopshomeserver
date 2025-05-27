@@ -70,8 +70,8 @@ spec:
             - name: sabnzbd-configmap
               mountPath: /config/sabnzbd-configmap.ini
               subPath: sabnzbd.ini
-            - name: longhorn-sabnzbd
-              mountPath: /config
+            # - name: longhorn-sabnzbd
+            #   mountPath: /config
       # initContainers:
       #   - name: init-sabnzbd-config
       #     image: busybox
