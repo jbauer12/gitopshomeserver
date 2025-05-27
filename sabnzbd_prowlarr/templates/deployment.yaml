@@ -64,6 +64,8 @@ spec:
               mountPath: /Downloads
             - name: longhorn-sabnzbd-config
               mountPath: /config
+            - name: sabnzbd-configmap
+              mountPath: /tmp/configmap
       initContainers:
         - name: init-sabnzbd-config
           image: busybox
