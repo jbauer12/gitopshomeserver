@@ -68,7 +68,7 @@ spec:
             - containerPort: 8080
           volumeMounts:
             - name: sabnzbd-configmap
-              mountPath: /config/sabnzbd-configmap.ini
+              mountPath: /config/sabnzbd.ini
               subPath: sabnzbd.ini
             - name: longhorn-sabnzbd
               mountPath: /Downloads
