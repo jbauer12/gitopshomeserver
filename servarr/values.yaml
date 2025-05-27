@@ -1,3 +1,12 @@
 metadata:
   namespace: servarr
 
+global:
+  here: paste your global values here
+
+
+radarr:
+
+sonarr:
+
+sabnzbd_prowlarr

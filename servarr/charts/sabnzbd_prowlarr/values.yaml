@@ -1,0 +1,15 @@
+spec:
+  port: 8080
+
+pvc:
+  download_size: 10Gi
+
+metadata:
+  namespace: servarr
+
+sabnzbd:
+  config:
+    newsreader: news.eweka.nl
+    username: d351ff44ee6781c0
+
+
