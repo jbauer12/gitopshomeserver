@@ -18,18 +18,11 @@ spec:
           image: linuxserver/prowlarr:latest
           ports:
           - containerPort: 9696
-
-
-
           volumeMounts:
           - name: configprowlarr
             mountPath: /config
           - name: downloadsprowlarr
             mountPath: /downloads
-
-
-
-
           env:
           - name: PUID
             value: "1000"
@@ -121,7 +114,7 @@ spec:
         - name: longhorn-sabnzbd
           persistentVolumeClaim:
           claimName: longhorn-sabnzbd
-        - name: sabnzbd-config-config
+        - name: longhorn-sabnzbd-config
           persistentVolumeClaim:
           claimName: longhorn-sabnzbd-config
 
