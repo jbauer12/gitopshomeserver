@@ -98,9 +98,9 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-            - name: movies
+            - name: downloaded-movies
               mountPath: /downloaded_movies
-            - name: movies
+            - name: downloaded-series
               mountPath: /downloaded_series
             - name: sabnzbd-generated-config
               mountPath: /config
@@ -122,11 +122,11 @@ spec:
           persistentVolumeClaim:
             claimName: {{ .Values.global.prowlarr_volume }}
 
-        - name: downloaded_movies
+        - name: downloaded-movies
           persistentVolumeClaim:
             claimName: {{ .Values.global.movie_volume }}
 
-        - name: downloaded_series
+        - name: downloaded-series
           persistentVolumeClaim:
             claimName: {{ .Values.global.series_volume }}
 
