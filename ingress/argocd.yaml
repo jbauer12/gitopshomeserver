@@ -19,10 +19,10 @@ spec:
             name: argocd-server
             port:
               name: http
-    host: argocd.mydomain.com
+    host: argocd.mydomain.de
   tls:
   - hosts:
-    - argocd.mydomain.com
+    - argocd.mydomain.de
     secretName: argocd-ingress-http
 ---
 apiVersion: networking.k8s.io/v1

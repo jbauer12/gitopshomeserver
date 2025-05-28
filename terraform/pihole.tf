@@ -1,5 +1,5 @@
 resource "pihole_dns_record" "argocd" {
-  domain = "argocd.mydomain.com"
+  domain = "argocd.mydomain.de"
   ip     = "192.168.178.69"
 }
 
@@ -10,5 +10,19 @@ resource "pihole_dns_record" "sabnzbd" {
 
 resource "pihole_dns_record" "longhorn" {
   domain = "longhorn.mydomain.com"
+  ip     = "192.168.178.69"
+  }
+
+resource "pihole_dns_record" "radarr" {
+  domain = "radarr.mydomain.com"
+  ip     = "192.168.178.69"
+  }
+
+resource "pihole_dns_record" "sonarr" {
+  domain = "sonarr.mydomain.com"
+  ip     = "192.168.178.69"
+  }
+resource "pihole_dns_record" "prowlarr" {
+  domain = "prowlarr.mydomain.com"
   ip     = "192.168.178.69"
   }
