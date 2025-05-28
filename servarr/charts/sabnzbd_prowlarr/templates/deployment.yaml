@@ -98,8 +98,10 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
-            - name: longhorn-sabnzbd
-              mountPath: /Downloads
+            - name: movies
+              mountPath: /downloaded_movies
+            - name: movies
+              mountPath: /downloaded_series
             - name: sabnzbd-generated-config
               mountPath: /config
 
@@ -118,11 +120,15 @@ spec:
 
         - name: downloadsprowlarr
           persistentVolumeClaim:
-            claimName: longhorn-prowlarr-downloads
+            claimName: {{ .Values.global.prowlarr_volume }}
 
-        - name: longhorn-sabnzbd
+        - name: downloaded_movies
           persistentVolumeClaim:
-            claimName: longhorn-sabnzbd
+            claimName: {{ .Values.global.movie_volume }}
+
+        - name: downloaded_series
+          persistentVolumeClaim:
+            claimName: {{ .Values.global.series_volume }}
 
         - name: sabnzbd-generated-config
           persistentVolumeClaim:

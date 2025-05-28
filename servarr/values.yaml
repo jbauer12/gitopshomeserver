@@ -2,7 +2,10 @@ metadata:
   namespace: servarr
 
 global:
-  here: paste your global values here
+  movie_volume: downloaded-movies
+  series_volume: downloaded-series
+  prowlarr_volume: prowlarr-downloads
+
 service:
   port: 80 
 
