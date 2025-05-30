@@ -20,10 +20,10 @@ spec:
             port:
               name: http
     host: argocd.mydomain.com
-  # tls:
-  # - hosts:
-  #   - argocd.mydomain.com
-  #   secretName: argocd-ingress-http
+  tls:
+  - hosts:
+    - argocd.mydomain.com
+    secretName: argocd-ingress-http
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
