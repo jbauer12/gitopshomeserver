@@ -42,5 +42,5 @@ spec:
   tls:
     - hosts:
         - jonelli.uk
-      secretName: longhorn-http-tls
+      secretName: longhorn-ui-http-tls
   ingressClassName: nginx
