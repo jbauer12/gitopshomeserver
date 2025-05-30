@@ -1,20 +1,46 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: longhorn-ingress
+#   namespace: longhorn-system
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: longhorn.mydomain.com
+#     http:
+#       paths:
+#       - pathType: Prefix
+#         path: "/"
+#         backend:
+#           service:
+#             name: longhorn-frontend
+#             port:
+#               number: 80
+
+
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: longhorn-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "cloudflare-issuer"
   namespace: longhorn-system
 spec:
   ingressClassName: nginx
   rules:
-  - host: longhorn.mydomain.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: longhorn-frontend
-            port:
-              number: 80
-
-
+    - host: jonelli.uk
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: longhorn-frontend
+              port:
+                number: 80
+  tls:
+    - hosts:
+        - jonelli.uk
+      secretName: longhorn-http-tls
+  ingressClassName: nginx
