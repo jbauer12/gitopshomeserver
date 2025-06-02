@@ -29,11 +29,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sabnzbd-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: "global-cluster-issuer"
   namespace: {{ .Values.metadata.namespace }}
   annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"  # Use HTTP protocol to route traffic
+    cert-manager.io/cluster-issuer: "global-cluster-issuer"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   ingressClassName: nginx
   rules:
@@ -51,7 +50,7 @@ spec:
     - hosts:
         - sabnzbd.jonelli.uk
       secretName: sabnzbd-tls-secret
-  ingressClassName: nginx
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
