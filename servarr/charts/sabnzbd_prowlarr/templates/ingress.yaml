@@ -43,7 +43,7 @@ spec:
               service:
                 name: prowlarr
                 port:
-                  number: 9696
+                  number: 80
   tls:
     - hosts:
         - prowlarr.jonelli.uk
