@@ -9,7 +9,7 @@ resource "pihole_dns_record" "sabnzbd" {
 }
 
 resource "pihole_dns_record" "longhorn" {
-  domain = "longhorn.mydomain.com"
+  domain = "longhorn.jonelli.uk"
   ip     = "192.168.178.69"
   }
 
@@ -24,10 +24,5 @@ resource "pihole_dns_record" "sonarr" {
   }
 resource "pihole_dns_record" "prowlarr" {
   domain = "prowlarr.mydomain.com"
-  ip     = "192.168.178.69"
-  }
-
-resource "pihole_dns_record" "longhorn_2" {
-  domain = "jonelli.uk"
   ip     = "192.168.178.69"
   }

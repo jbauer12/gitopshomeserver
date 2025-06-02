@@ -29,13 +29,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sabnzbd-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "global-cluster-issuer"
   namespace: {{ .Values.metadata.namespace }}
   annotations:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"  # Use HTTP protocol to route traffic
 spec:
   ingressClassName: nginx
   rules:
-  - host: sabnzbd.mydomain.com
+  - host: sabnzbd.jonelli.uk
     http:
       paths:
       - path: /
@@ -45,6 +47,11 @@ spec:
             name: sabnzbd
             port:
               number: 80
+  tls:
+    - hosts:
+        - sabnzbd.jonelli.uk
+      secretName: sabnzbd-tls-secret
+  ingressClassName: nginx
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
