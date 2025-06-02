@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: jonelli.uk
+    - host: longhorn.jonelli.uk
       http:
         paths:
         - pathType: Prefix
@@ -20,6 +20,6 @@ spec:
                 number: 80
   tls:
     - hosts:
-        - jonelli.uk
+        - longhorn.jonelli.uk
       secretName: longhorn-ui-http-tls
   ingressClassName: nginx

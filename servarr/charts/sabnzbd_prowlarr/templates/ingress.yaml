@@ -2,33 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: sabnzbd-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: "global-cluster-issuer"
-  namespace: longhorn-system
-spec:
-  ingressClassName: nginx
-  rules:
-    - host: longhorn.jonelli.uk
-      http:
-        paths:
-        - pathType: Prefix
-          path: "/"
-          backend:
-            service:
-              name: longhorn-frontend
-              port:
-                number: 80
-  tls:
-    - hosts:
-        - longhorn.jonelli.uk
-      secretName: longhorn-ui-http-tls-longhorn
-  ingressClassName: nginx
-
---- 
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: sabnzbd-ingress
   namespace: {{ .Values.metadata.namespace }}
   annotations:
     cert-manager.io/cluster-issuer: "global-cluster-issuer"
@@ -57,17 +30,22 @@ metadata:
   name: prowlarr-ingress
   namespace: {{ .Values.metadata.namespace }}
   annotations:
+    cert-manager.io/cluster-issuer: "global-cluster-issuer"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   ingressClassName: nginx
   rules:
-  - host: prowlarr.mydomain.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: prowlarr
-            port:
-              number: 80
+    - host: prowlarr.jonelli.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prowlarr
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - prowlarr.jonelli.uk
+      secretName: prowlarr-tls-secret
