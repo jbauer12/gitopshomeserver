@@ -1,0 +1,49 @@
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: jellyfin
+#   namespace: servarr
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: jellyfin
+#   template:
+#     metadata:
+#       labels:
+#         app: jellyfin
+#     spec:
+#       containers:
+#       - name: jellyfin
+#         image: linuxserver/jellyfin:latest
+#         ports:
+#         - containerPort: 7878
+#         volumeMounts:
+#         - name: config
+#           mountPath: /config
+#         - name: movies
+#           mountPath: /movies
+#         - name: downloads
+#           mountPath: /downloads
+#         env:
+#         - name: PUID
+#           value: "1000"
+#         - name: PGID
+#           value: "1000"
+#         - name: TZ
+#           value: "America/New_York"
+
+
+#       volumes:
+#       - name: config
+#         hostPath:
+#           path: /data/radarr/config
+#           type: DirectoryOrCreate
+#       - name: movies
+#         hostPath:
+#           path: /data/radarr/movies
+#           type: DirectoryOrCreate
+#       - name: downloads
+#         hostPath:
+#           path: /data/radarr/downloads
+#           type: DirectoryOrCreate

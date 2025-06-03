@@ -42,6 +42,19 @@ variable "worker_nodes" {
 
 variable "secret_key_path" {
   type = string
-  description = "Where Sealed Secret Keys lies."
-  
+  description = "Where Sealed Secret Keys lies." 
+}
+variable "domain_name" {
+  type = string
+  description = "Domain name for the cluster"
+}
+variable "cloudflare_api_token" {
+  type        = string
+  sensitive   = true
+  description = "Cloudflare API token"
+  }
+variable "zone_id" {
+  type        = string
+  sensitive   = true
+  description = "Cloudflare zone ID"
 }

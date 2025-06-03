@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jellyfin-ingress
+  namespace: {{ .Values.metadata.namespace }}
+  annotations:
+    cert-manager.io/cluster-issuer: "global-cluster-issuer"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: jellyfin.jonelli.uk
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - jellyfin.jonelli.uk
+      secretName: jellyfin-tls-secret

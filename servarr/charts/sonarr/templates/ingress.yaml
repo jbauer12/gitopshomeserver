@@ -4,7 +4,7 @@ metadata:
   name: sonarr-ingress
   namespace: {{ .Values.metadata.namespace }}
   annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    cert-manager.io/cluster-issuer: "global-cluster-issuer"
 spec:
   ingressClassName: nginx
   rules:
@@ -18,3 +18,7 @@ spec:
             name: sonarr
             port:
               number: 80
+  tls:
+    - hosts:
+        - sonarr.jonelli.uk
+      secretName: sonarr-tls-secret
