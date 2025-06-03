@@ -20,10 +20,9 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   selector:
-    app: prowlarr
+    app: sabnzbd
   ports:
     - protocol: TCP
       port: 80         
       targetPort: 9696  
   type: ClusterIP
-
