@@ -21,8 +21,8 @@ resource "cloudflare_dns_record" "dns_entries" {
   zone_id = var.zone_id
   name    = "${each.key}"
   type    = "CNAME"
-  ttl     = 1
+  ttl     = 3600
   content   = "${var.domain_name}" 
-  proxied = true
+  proxied = false
 }
 
