@@ -12,3 +12,6 @@ dependencies:
   - name: sabnzbd_prowlarr
     version: 0.1.0
     repository: "file://charts/sabnzbd_prowlarr"
+  - name: jellyfin
+    version: 0.1.0
+    repository: "file://charts/jellyfin"
