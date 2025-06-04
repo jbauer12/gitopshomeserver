@@ -17,7 +17,7 @@ spec:
       - name: jellyfin
         image: linuxserver/jellyfin:latest
         ports:
-        - containerPort: 7878
+        - containerPort: 8096
         volumeMounts:
         - name: config
           mountPath: /config
