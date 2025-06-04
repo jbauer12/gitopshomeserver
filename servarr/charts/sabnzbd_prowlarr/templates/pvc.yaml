@@ -25,11 +25,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-prowlarr-config
+  name: longhorn-prowlarr-config-rwx
 spec:
   accessModes:
-    - ReadWriteOnce
-  storageClassName: longhorn
+    - ReadWriteMany
+  storageClassName: longhorn-rwx
   resources:
     requests:
       storage: 1Gi
