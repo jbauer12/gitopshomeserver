@@ -9,5 +9,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80         
-      targetPort: #TODO  
+      targetPort: 7878
   type: ClusterIP
