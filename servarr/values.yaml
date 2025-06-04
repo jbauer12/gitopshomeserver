@@ -2,8 +2,7 @@ metadata:
   namespace: servarr
 
 global:
-  movie_volume: downloaded-movies
-  series_volume: downloaded-series
+  media_volume: downloaded-media
   prowlarr_volume: prowlarr-downloads
 
 service:

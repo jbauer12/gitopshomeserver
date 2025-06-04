@@ -5,9 +5,9 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   selector:
-    app: sabnzbd
+    app: jellyfin
   ports:
     - protocol: TCP
       port: 80         
-      targetPort: 9696  
+      targetPort: #TODO  
   type: ClusterIP
