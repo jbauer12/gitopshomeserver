@@ -92,6 +92,8 @@ spec:
                   key: openvpnPassword
             - name: FIREWALL_INPUT_PORTS
               value: "8080,9091,9696"
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.42.0.0/16
 
         - name: sabnzbd
           image: linuxserver/sabnzbd:latest
