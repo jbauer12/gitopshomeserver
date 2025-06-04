@@ -23,7 +23,6 @@ spec:
           mountPath: /config
         - name: downloaded-media
           mountPath: /data
-
         env:
         - name: PUID
           value: "1000"
