@@ -116,7 +116,7 @@ spec:
 
         - name: configprowlarr
           persistentVolumeClaim:
-            claimName: longhorn-prowlarr-config
+            claimName: longhorn-prowlarr-config-rwx
 
         - name: downloadsprowlarr
           persistentVolumeClaim:
