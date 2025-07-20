@@ -48,7 +48,6 @@ port forward (proviosnally)
 ```bash
 kubectl port-forward service/argocd-server -n argocd 8080:80
 
-LZzHtZA-QsxOsALP
 ```
 
 ### Install ArgoCD CLI
