@@ -50,22 +50,6 @@ spec:
               readOnly: true
 
       containers:
-        - name: sonarr
-          image: linuxserver/sonarr:latest
-          ports:
-          - containerPort: 8989
-          volumeMounts:
-          - name: config
-            mountPath: /config
-          - name: downloaded-media
-            mountPath: /data
-          env:
-          - name: PUID
-            value: "1000"
-          - name: PGID
-            value: "1000"
-          - name: TZ
-            value: "America/New_York"
         - name: prowlarr
           image: linuxserver/prowlarr:latest
           ports:
