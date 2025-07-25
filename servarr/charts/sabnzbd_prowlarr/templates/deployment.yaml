@@ -50,6 +50,24 @@ spec:
               readOnly: true
 
       containers:
+
+        - name: sonarr
+          image: linuxserver/sonarr:latest
+          ports:
+          - containerPort: 8989
+          volumeMounts:
+          - name: sonarr-config
+            mountPath: /config
+          - name: downloaded-media
+            mountPath: /data
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "America/New_York"
+
         - name: radarr
           image: linuxserver/radarr:latest
           ports:
@@ -108,7 +126,7 @@ spec:
                   name: sabnzbd-secret
                   key: openvpnPassword
             - name: FIREWALL_INPUT_PORTS
-              value: "8080,9091,9696, 7878"
+              value: "8080,9091,9696, 7878, 8989"
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: 10.42.0.0/16
 
@@ -138,6 +156,10 @@ spec:
         - name: radarr-config
           persistentVolumeClaim:
             claimName: radarr-config
+
+        - name: config
+          persistentVolumeClaim:
+            claimName: sonarr-config
 
         - name: downloadsprowlarr
           persistentVolumeClaim:

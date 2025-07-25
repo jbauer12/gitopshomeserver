@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.metadata.namespace }}
 spec:
   selector:
-    app: sonarr
+    app: sabnzbd
   ports:
     - protocol: TCP
       port: 80         
