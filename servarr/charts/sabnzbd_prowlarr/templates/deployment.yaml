@@ -50,22 +50,22 @@ spec:
               readOnly: true
 
       containers:
-      - name: radarr
-        image: linuxserver/radarr:latest
-        ports:
-        - containerPort: 7878
-        volumeMounts:
-        - name: radarr-config
-          mountPath: /config
-        - name: downloaded-media
-          mountPath: /data
-        env:
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
-        - name: TZ
-          value: "America/New_York"
+        - name: radarr
+          image: linuxserver/radarr:latest
+          ports:
+          - containerPort: 7878
+          volumeMounts:
+          - name: radarr-config
+            mountPath: /config
+          - name: downloaded-media
+            mountPath: /data
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "America/New_York"
 
         - name: prowlarr
           image: linuxserver/prowlarr:latest
@@ -108,7 +108,7 @@ spec:
                   name: sabnzbd-secret
                   key: openvpnPassword
             - name: FIREWALL_INPUT_PORTS
-              value: "8080,9091,9696"
+              value: "8080,9091,9696, 7878"
             - name: FIREWALL_OUTBOUND_SUBNETS
               value: 10.42.0.0/16
 
