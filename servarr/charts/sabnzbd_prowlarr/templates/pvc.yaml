@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-sabnzbd
+  name: sabnzbd
 spec:
   accessModes:
     - ReadWriteMany
@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-sabnzbd-config
+  name: sabnzbd-config
 spec:
   accessModes:
     - ReadWriteMany
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-prowlarr-config-rwx
+  name: prowlarr-config-rwx
 spec:
   accessModes:
     - ReadWriteMany
@@ -34,7 +34,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-prowlarr-downloads
+  name: prowlarr-downloads
 spec:
   accessModes:
     - ReadWriteMany

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: longhorn-radarr-config
+  name: radarr-config
 spec:
   accessModes:
     - ReadWriteOnce

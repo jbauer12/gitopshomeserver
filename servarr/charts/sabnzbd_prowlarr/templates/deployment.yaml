@@ -116,7 +116,7 @@ spec:
 
         - name: configprowlarr
           persistentVolumeClaim:
-            claimName: longhorn-prowlarr-config-rwx
+            claimName: prowlarr-config-rwx
 
         - name: downloadsprowlarr
           persistentVolumeClaim:
@@ -128,4 +128,4 @@ spec:
 
         - name: sabnzbd-generated-config
           persistentVolumeClaim:
-            claimName: longhorn-sabnzbd-config
+            claimName: sabnzbd-config
