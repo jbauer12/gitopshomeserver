@@ -1,4 +1,6 @@
-resource "ssh_resource" "prerequisites_k3s" {
+#TODO Build a step after prerequisites to reboot all nodes to apply the changes made by the prerequisites step.
+
+resource "ssh_resource" "prerequisites_k3s_new" {
   for_each     = toset(local.all_nodes)
   host         = each.value
   user         = var.ssh_user
@@ -13,12 +15,13 @@ resource "ssh_resource" "prerequisites_k3s" {
 
   commands = [
     "sudo mv /tmp/cmdline.txt /boot/firmware/cmdline.txt",
-    "sudo chmod 0700 /boot/firmware/cmdline.txt"
+    "sudo chmod 0700 /boot/firmware/cmdline.txt",
+    "sudo apt install -y nfs-common"
   ]
 }
 
 resource "null_resource" "install_k3s_master" {
-  depends_on = [ssh_resource.prerequisites_k3s]
+  depends_on = [ssh_resource.prerequisites_k3s_new]
   for_each   = toset(var.master_nodes)
 
   provisioner "local-exec" {
@@ -35,7 +38,7 @@ EOT
 }
 
 resource "null_resource" "join_k3s_worker" {
-  depends_on = [ssh_resource.prerequisites_k3s, null_resource.install_k3s_master]
+  depends_on = [ssh_resource.prerequisites_k3s_new]
   for_each   = toset(var.worker_nodes)
 
   provisioner "local-exec" {

@@ -6,7 +6,8 @@ locals {
     "radarr",
     "sonarr",
     "prowlarr",
-    "jellyfin"
+    "jellyfin",
+    "omv"
   ]
 }
 
@@ -16,13 +17,13 @@ resource "pihole_dns_record" "apps" {
   ip     = var.master_nodes[0]
 }
 
-resource "cloudflare_dns_record" "dns_entries" {
-  for_each = toset(local.dns_entries)
-  zone_id = var.zone_id
-  name    = "${each.key}"
-  type    = "CNAME"
-  ttl     = 3600
-  content   = "${var.domain_name}" 
-  proxied = false
-}
+# resource "cloudflare_dns_record" "dns_entries" {
+#   for_each = toset(local.dns_entries)
+#   zone_id = var.zone_id
+#   name    = "${each.key}"
+#   type    = "CNAME"
+#   ttl     = 3600
+#   content   = "${var.domain_name}" 
+#   proxied = false
+# }
 

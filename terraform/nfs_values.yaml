@@ -1,0 +1,7 @@
+nfs:
+  server: 192.168.178.73
+  path: nas-shared
+
+storageClass:
+  name: nfs-client
+  defaultClass: true
