@@ -6,7 +6,7 @@ resource "kubernetes_namespace" "argocd" {
 }
 
 resource "helm_release" "argocd" {
-  depends_on = [null_resource.install_k3s_master, null_resource.join_k3s_worker, kubernetes_namespace.argocd]
+  depends_on = [helm_release.cert_manager, kubernetes_namespace.argocd]
   name       = "argocd"
   namespace  = kubernetes_namespace.argocd.metadata[0].name
   repository = "https://argoproj.github.io/argo-helm"

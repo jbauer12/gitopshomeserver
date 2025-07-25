@@ -9,7 +9,9 @@ variable "pihole_password" {
   sensitive   = true
   description = "Pihole password"
 }
-
+variable "email" {
+  type        = string
+}
 
 variable "argocd_admin_password_decrypted" {
   type        = string
