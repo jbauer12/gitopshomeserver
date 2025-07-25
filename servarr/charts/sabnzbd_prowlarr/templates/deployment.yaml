@@ -157,7 +157,7 @@ spec:
           persistentVolumeClaim:
             claimName: radarr-config
 
-        - name: config
+        - name: sonarr-config
           persistentVolumeClaim:
             claimName: sonarr-config
 
