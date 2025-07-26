@@ -17,6 +17,12 @@ resource "pihole_dns_record" "apps" {
   ip     = var.master_nodes[0]
 }
 
+resource "pihole_dns_record" "omv" {
+  for_each = toset(local.dns_entries)
+  domain = "omv.${var.domain_name}"
+  ip     = "192.168.178.73"
+}
+
 # resource "cloudflare_dns_record" "dns_entries" {
 #   for_each = toset(local.dns_entries)
 #   zone_id = var.zone_id
