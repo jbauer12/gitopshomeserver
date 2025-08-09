@@ -1,6 +1,4 @@
 spec:
   port: 7878
-
-
 metadata:
   namespace: servarr

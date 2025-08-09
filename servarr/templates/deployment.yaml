@@ -1,0 +1,174 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sabnzbd
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sabnzbd
+  template:
+    metadata:
+      labels:
+        app: sabnzbd
+    spec:
+      initContainers:
+        - name: init-sabnzbd-config
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              cp /projected/sabnzbd.ini /config/sabnzbd.ini
+              echo "" >> /config/sabnzbd.ini
+              echo "[misc]" >> /config/sabnzbd.ini
+              echo "api_key = $APIKEY" >> /config/sabnzbd.ini
+              echo "username = $USERNAME" >> /config/sabnzbd.ini
+              echo "password = $PASSWORD" >> /config/sabnzbd.ini
+          env:
+            - name: APIKEY
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: apiKey
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: username
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: password
+          volumeMounts:
+            - name: sabnzbd-generated-config
+              mountPath: /config
+            - name: sabnzbd-projected
+              mountPath: /projected
+              readOnly: true
+
+      containers:
+
+        - name: sonarr
+          image: linuxserver/sonarr:latest
+          ports:
+          - containerPort: 8989
+          volumeMounts:
+          - name: sonarr-config
+            mountPath: /config
+          - name: downloaded-media
+            mountPath: /data
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "America/New_York"
+
+        - name: radarr
+          image: linuxserver/radarr:latest
+          ports:
+          - containerPort: 7878
+          volumeMounts:
+          - name: radarr-config
+            mountPath: /config
+          - name: downloaded-media
+            mountPath: /data
+          env:
+          - name: PUID
+            value: "1000"
+          - name: PGID
+            value: "1000"
+          - name: TZ
+            value: "America/New_York"
+
+        - name: prowlarr
+          image: linuxserver/prowlarr:latest
+          ports:
+            - containerPort: 9696
+          volumeMounts:
+            - name: configprowlarr
+              mountPath: /config
+            - name: downloadsprowlarr
+              mountPath: /downloads
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: TZ
+              value: "America/New_York"
+
+        - name: gluetun
+          image: ghcr.io/qdm12/gluetun:latest
+          imagePullPolicy: Always
+          securityContext:
+            capabilities:
+              add: ["NET_ADMIN"]
+          ports:
+            - containerPort: 9091
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              value: "protonvpn"
+            - name: DNS_ADDRESS
+              value: 1.1.1.1
+            - name: OPENVPN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: openvpnUsername
+            - name: OPENVPN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sabnzbd-secret
+                  key: openvpnPassword
+            - name: FIREWALL_INPUT_PORTS
+              value: "8080,9091,9696,7878,8989"
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.42.0.0/16
+
+        - name: sabnzbd
+          image: linuxserver/sabnzbd:latest
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: downloaded-media
+              mountPath: /data
+            - name: sabnzbd-generated-config
+              mountPath: /config
+
+      volumes:
+        - name: sabnzbd-projected
+          projected:
+            sources:
+              - configMap:
+                  name: sabnzbd-configmap
+              - secret:
+                  name: sabnzbd-secret
+
+        - name: configprowlarr
+          persistentVolumeClaim:
+            claimName: prowlarr-config-rwx
+
+        - name: radarr-config
+          persistentVolumeClaim:
+            claimName: radarr-config
+
+        - name: sonarr-config
+          persistentVolumeClaim:
+            claimName: sonarr-config
+
+        - name: downloadsprowlarr
+          persistentVolumeClaim:
+            claimName: {{ .Values.global.prowlarr_volume }}
+
+        - name: downloaded-media
+          persistentVolumeClaim:
+            claimName: {{ .Values.global.media_volume }}
+
+        - name: sabnzbd-generated-config
+          persistentVolumeClaim:
+            claimName: sabnzbd-config
