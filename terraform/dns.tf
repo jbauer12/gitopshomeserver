@@ -6,7 +6,8 @@ locals {
     "radarr",
     "sonarr",
     "prowlarr",
-    "jellyfin"  ]
+    "jellyfin"
+      ]
 }
 
 resource "pihole_dns_record" "apps" {
