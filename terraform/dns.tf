@@ -6,9 +6,7 @@ locals {
     "radarr",
     "sonarr",
     "prowlarr",
-    "jellyfin",
-    "omv"
-  ]
+    "jellyfin"  ]
 }
 
 resource "pihole_dns_record" "apps" {
@@ -18,7 +16,6 @@ resource "pihole_dns_record" "apps" {
 }
 
 resource "pihole_dns_record" "omv" {
-  for_each = toset(local.dns_entries)
   domain = "omv.${var.domain_name}"
   ip     = "192.168.178.73"
 }
