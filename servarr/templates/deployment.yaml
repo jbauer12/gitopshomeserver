@@ -56,7 +56,7 @@ spec:
           ports:
           - containerPort: 8989
           volumeMounts:
-          - name: sonarr-config-new
+          - name: sonarr-config
             mountPath: /config
           - name: downloaded-media
             mountPath: /data
@@ -157,9 +157,9 @@ spec:
           persistentVolumeClaim:
             claimName: radarr-config
 
-        - name: sonarr-config-new
+        - name: sonarr-config
           persistentVolumeClaim:
-            claimName: sonarr-config-new
+            claimName: sonarr-config
 
         - name: downloadsprowlarr
           persistentVolumeClaim:
