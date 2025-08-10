@@ -13,15 +13,6 @@ spec:
       labels:
         app: jellyfin
     spec:
-      initContainers:
-      - name: fix-permissions
-        image: busybox
-        securityContext:
-          runAsUser: 0
-        command: ["sh", "-c", "chown -R 1000:1000 /config"]
-        volumeMounts:
-        - name: config
-          mountPath: /config
       containers:
       - name: jellyfin
         image: linuxserver/jellyfin:latest
@@ -42,7 +33,7 @@ spec:
       volumes:
       - name: config
         persistentVolumeClaim:
-          claimName: jellyfin-config-rwx
+          claimName: jellyfin-config
       - name: downloaded-media
         persistentVolumeClaim:
           claimName: {{ .Values.global.media_volume }}
