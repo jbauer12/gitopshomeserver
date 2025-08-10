@@ -23,13 +23,13 @@ spec:
           mountPath: /config
         - name: downloaded-media
           mountPath: /media
-        env:
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
-        - name: TZ
-          value: "America/New_York"
+        # env:
+        # - name: PUID
+        #   value: "1000"
+        # - name: PGID
+        #   value: "1000"
+        # - name: TZ
+        #   value: "America/New_York"
       volumes:
       - name: config
         persistentVolumeClaim:
