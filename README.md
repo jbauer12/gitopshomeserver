@@ -103,14 +103,13 @@ kubeseal -f example_secret.yaml -w mysealedsecret.yaml --controller-name sealed-
 
 
 ## TODO
-- Automate it with Terraform / Ansible
-- Write documentation how to use k3d with multi-cluster
-- Work on terraform script to support local setup!
-- setup Read-Write Many Volume with longhorn
+
+Use Software:
+- Immich
+- Nextcloud or Opencloud
+- Paperless
 
 Implement:
-- Longhorn
 - Kube-VIP
-- cert-manager
 - Prometheus & Grafana
 
