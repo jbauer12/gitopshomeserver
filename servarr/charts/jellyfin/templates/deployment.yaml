@@ -20,7 +20,7 @@ spec:
         - containerPort: 8096
         volumeMounts:
         - name: config
-          mountPath: /
+          mountPath: /config
         - name: downloaded-media
           mountPath: /media
         # env:
