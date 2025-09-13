@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pvc-music
+  name: music-pvc
 spec:
   accessModes:
     - ReadWriteMany
