@@ -37,3 +37,6 @@ spec:
       - name: downloaded-media
         persistentVolumeClaim:
           claimName: {{ .Values.global.media_volume }}
+      - name: music
+        persistentVolumeClaim:
+          claimName: music-pvc
