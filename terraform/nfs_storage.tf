@@ -29,29 +29,3 @@ resource "helm_release" "storage_class_nfs" {
     null_resource.join_k3s_worker
   ]
 }
-resource "helm_release" "storage_class_music-nfs" {
-  name       = "nfs-music-provisioner"
-  repository = "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/"
-  chart      = "nfs-subdir-external-provisioner"
-  namespace  = "storage-class"
-  create_namespace = true
-
-  set {
-    name  = "nfs.server"
-    value = "192.168.178.73"
-  }
-
-  set {
-    name  = "nfs.path"
-    value = "/music"
-  }
-
-  set {
-    name  = "storageClass.name"
-    value = "nfs-music"
-  }
-  depends_on = [
-    null_resource.install_k3s_master,
-    null_resource.join_k3s_worker
-  ]
-}
