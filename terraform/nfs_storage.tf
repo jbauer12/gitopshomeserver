@@ -30,11 +30,11 @@ resource "helm_release" "storage_class_nfs" {
   ]
 }
 resource "helm_release" "storage_class_music-nfs" {
-  name       = "nfs-music-subdir-external-provisioner"
+  name       = "nfs-music-provisioner"
   repository = "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/"
   chart      = "nfs-subdir-external-provisioner"
-  namespace  = "kube-system"
-  create_namespace = false
+  namespace  = "storage-class"
+  create_namespace = true
 
   set {
     name  = "nfs.server"
