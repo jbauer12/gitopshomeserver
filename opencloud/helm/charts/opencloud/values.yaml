@@ -733,4 +733,4 @@ ingress:
   # These are merged with any annotations from 'annotationsPreset' (if set).
   annotations: {}
     # Example:
-    cert-manager.io/cluster-issuer: "global-cluster-issuer-dev"
+    cert-manager.io/cluster-issuer: global-cluster-issuer-dev
