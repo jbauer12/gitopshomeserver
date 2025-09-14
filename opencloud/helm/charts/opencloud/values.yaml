@@ -731,6 +731,5 @@ ingress:
 
   # Custom annotations applied to all ingress resources.
   # These are merged with any annotations from 'annotationsPreset' (if set).
-  annotations: {}
-    # Example:
+  annotations:
     cert-manager.io/cluster-issuer: global-cluster-issuer-dev
