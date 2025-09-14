@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   name: opencloud-ingress-opencloud
   namespace: opencloud
-  # annotations:
-  #   cert-manager.io/cluster-issuer: "global-cluster-issuer"
+  annotations:
+    cert-manager.io/cluster-issuer: "global-cluster-issuer-dev"
 spec:
   ingressClassName: nginx
   rules:

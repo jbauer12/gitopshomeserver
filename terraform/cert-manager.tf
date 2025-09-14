@@ -60,4 +60,37 @@ resource "kubernetes_manifest" "global_cluster_issuer" {
     }
   }
 }
+resource "kubernetes_manifest" "global_cluster_issuer_dev" {
+  manifest = {
+    apiVersion = "cert-manager.io/v1"
+    kind       = "ClusterIssuer"
+    metadata = {
+      name = "global-cluster-issuer-dev"
+    }
+    spec = {
+      acme = {
+        email  = var.email
+        # Let's Encrypt staging server for testing
+        server = "https://acme-staging-v02.api.letsencrypt.org/directory"
+        privateKeySecretRef = {
+          name = "cluster-issuer-account-key-dev"
+        }
+        solvers = [
+          {
+            dns01 = {
+              cloudflare = {
+                email = var.email
+                apiTokenSecretRef = {
+                  name = "cloudflare-api-token"
+                  key  = "api-token"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
 
