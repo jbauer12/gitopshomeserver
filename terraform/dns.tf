@@ -2,11 +2,11 @@ locals {
   dns_entries = [
     "argocd",
     "sabnzbd",
-    "longhorn",
     "radarr",
     "sonarr",
     "prowlarr",
-    "jellyfin"
+    "jellyfin",
+    "opencloud"
       ]
 }
 
@@ -21,13 +21,13 @@ resource "pihole_dns_record" "omv" {
   ip     = "192.168.178.73"
 }
 
-# resource "cloudflare_dns_record" "dns_entries" {
-#   for_each = toset(local.dns_entries)
-#   zone_id = var.zone_id
-#   name    = "${each.key}"
-#   type    = "CNAME"
-#   ttl     = 3600
-#   content   = "${var.domain_name}" 
-#   proxied = false
-# }
+resource "cloudflare_dns_record" "dns_entries" {
+  for_each = toset(local.dns_entries)
+  zone_id = var.zone_id
+  name    = "${each.key}"
+  type    = "CNAME"
+  ttl     = 3600
+  content   = "${var.domain_name}" 
+  proxied = false
+}
 
