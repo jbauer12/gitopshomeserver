@@ -736,4 +736,3 @@ ingress:
 ingress:
   annotations:
     cert-manager.io/cluster-issuer: "global-cluster-issuer-dev"
-    "nginx.ingress.kubernetes.io/cors-allow-origin": "*"
