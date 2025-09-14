@@ -6,7 +6,8 @@ locals {
     "sonarr",
     "prowlarr",
     "jellyfin",
-    "opencloud"
+    "opencloud",
+    "cloud"
       ]
 }
 
