@@ -729,7 +729,23 @@ ingress:
   # and define all annotations manually (including creating any required Middleware).
   annotationsPreset: ""  # optional, default ""
 
+
+
   # Custom annotations applied to all ingress resources.
   # These are merged with any annotations from 'annotationsPreset' (if set).
   annotations:
     cert-manager.io/cluster-issuer: global-cluster-issuer-dev
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "Origin, Accept, Authorization, Content-Type, Cache-Control"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/cors-max-age: "3600"
+
+
+
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  annotations:
+
