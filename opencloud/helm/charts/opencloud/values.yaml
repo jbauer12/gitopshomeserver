@@ -25,19 +25,19 @@ global:
   # Domain settings for various services
   domain:
     # Main domain for OpenCloud
-    opencloud: cloud.opencloud.test
+    opencloud: cloud.jonelli.uk
     # Domain for Keycloak
-    keycloak: keycloak.opencloud.test
+    keycloak: keycloak.jonelli.uk
     # Domain for MinIO
-    minio: minio.opencloud.test
+    minio: minio.jonelli.uk
     # Domain for WOPI server
-    wopi: wopiserver.opencloud.test
+    wopi: wopiserver.jonelli.uk
     # Domain for Collabora CODE
-    collabora: collabora.opencloud.test
+    collabora: collabora.jonelli.uk
     # Domain for OnlyOffice
-    onlyoffice: onlyoffice.opencloud.test
+    onlyoffice: onlyoffice.jonelli.uk
     # Domain for Companion
-    companion: companion.opencloud.test
+    companion: companion.jonelli.uk
 
   # TLS settings for secure connections
   tls:
@@ -569,7 +569,7 @@ opencloud:
   # Storage configuration
   storage:
     # Storage mode for user files, can be "s3" (default) or "posixfs"
-    mode: s3
+    mode: posixfs
     # S3 storage configuration
     s3:
       # Internal MinIO instance
@@ -703,11 +703,11 @@ httpRoute:
 # Ingress configuration
 ingress:
   # Whether to enable ingress resources for components
-  enabled: false
+  enabled: true
 
   # The ingress class name to use (e.g., nginx, traefik). Leave empty to use the cluster default.
   # Note: This sets the Kubernetes `spec.ingressClassName` field.
-  ingressClassName: ""
+  ingressClassName: "nginx"
 
   # Some components (e.g., OnlyOffice) require the X-Forwarded-Proto header to be set.
   #
@@ -733,4 +733,4 @@ ingress:
   # These are merged with any annotations from 'annotationsPreset' (if set).
   annotations: {}
     # Example:
-    # cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/cluster-issuer: "global-cluster-issuer-dev"
