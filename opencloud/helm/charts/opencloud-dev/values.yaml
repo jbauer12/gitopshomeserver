@@ -7,7 +7,7 @@ tag: 2.0.0
 adminPassword: admin
 insecure: true
 proxyHttpAddr: 0.0.0.0:9200
-url: https://opencloud.jonelli.uk
+url: https://localhost:9200
 pvcSize: 10Gi
 
   
