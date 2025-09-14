@@ -728,11 +728,9 @@ ingress:
   # If there's a conflict, Helm will error. To avoid this, set annotationsPreset: ""
   # and define all annotations manually (including creating any required Middleware).
   annotationsPreset: ""  # optional, default ""
-  annotations: {}  
+
 
   # Custom annotations applied to all ingress resources.
   # These are merged with any annotations from 'annotationsPreset' (if set).
-
-ingress:
   annotations:
-    cert-manager.io/cluster-issuer: "global-cluster-issuer-dev"
+    cert-manager.io/cluster-issuer: global-cluster-issuer-dev
