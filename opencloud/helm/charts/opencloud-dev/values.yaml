@@ -5,10 +5,9 @@ image: opencloudeu/opencloud-rolling
 tag: 2.0.0
 
 adminPassword: admin
-insecure: true
+insecure: false
 proxyHttpAddr: 0.0.0.0:9200
 url: https://localhost:9200
-
 pvcSize: 10Gi
 
   
