@@ -18,3 +18,10 @@ metadata:
   name: servarr
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
+--- 
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: opencloud
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
