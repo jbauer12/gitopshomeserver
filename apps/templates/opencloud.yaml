@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
-    path: opencloud/helm/opencloud-dev
+    path: opencloud/helm/charts/opencloud-dev
   syncPolicy:
     automated:
       prune: true
