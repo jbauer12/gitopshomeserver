@@ -17,7 +17,7 @@ spec:
               service:
                 name: opencloud-service
                 port:
-                  number: 443
+                  number: 9200
   tls:
     - hosts:
         - opencloud.jonelli.uk
