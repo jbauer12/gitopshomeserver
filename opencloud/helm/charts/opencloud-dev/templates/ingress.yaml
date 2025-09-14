@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: opencloud-ingress
-  namespace: opencloud
+  namespace: servarr
   annotations:
     cert-manager.io/cluster-issuer: "global-cluster-issuer"
 spec:
@@ -17,7 +17,7 @@ spec:
               service:
                 name: opencloud-service
                 port:
-                  number: 9200
+                  number: 443
   tls:
     - hosts:
         - opencloud.jonelli.uk
