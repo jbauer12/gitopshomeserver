@@ -736,7 +736,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: global-cluster-issuer-dev
     nginx.ingress.kubernetes.io/enable-cors: true
-    nginx.ingress.kubernetes.io/cors-allow-origin: "*""
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
     nginx.ingress.kubernetes.io/cors-allow-methods: GET, PUT, POST, DELETE, PATCH, OPTIONS
     nginx.ingress.kubernetes.io/cors-allow-headers: Origin, Accept, Authorization, Content-Type, Cache-Control
     nginx.ingress.kubernetes.io/cors-allow-credentials: true
