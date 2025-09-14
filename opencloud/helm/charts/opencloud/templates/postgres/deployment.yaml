@@ -52,9 +52,9 @@ spec:
           ports:
             - name: postgres
               containerPort: 5432
-          volumeMounts:
-            - name: data
-              mountPath: /var/lib/postgresql/data
+          # volumeMounts:
+            # - name: data
+            #   mountPath: /var/lib/postgresql/data
           resources:
             {{- toYaml .Values.postgres.resources | nindent 12 }}
       volumes:
