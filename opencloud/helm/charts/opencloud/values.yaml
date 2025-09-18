@@ -268,7 +268,7 @@ webExtensions:
 # =====================================================================
 
 collabora:
-  enabled: true
+  enabled: false
   image:
     registry: docker.io
     repository: collabora/code
