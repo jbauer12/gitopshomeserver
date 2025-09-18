@@ -375,15 +375,15 @@ onlyoffice:
         inputLimits:
           - type: "docx;dotx;docm;dotm"
             zip:
-              uncompressed: "1GB"
+              uncompressed: "10GB"
               template: "*.xml"
           - type: "xlsx;xltx;xlsm;xltm"
             zip:
-              uncompressed: "1GB"
+              uncompressed: "10GB"
               template: "*.xml"
           - type: "pptx;ppsx;potx;pptm;ppsm;potm"
             zip:
-              uncompressed: "1GB"
+              uncompressed: "10GB"
               template: "*.xml"
   # Collaboration service settings
   collaboration:
@@ -734,3 +734,4 @@ ingress:
   # These are merged with any annotations from 'annotationsPreset' (if set).
   annotations:
     cert-manager.io/cluster-issuer: global-cluster-issuer-dev
+    nginx.ingress.kubernetes.io/proxy-body-size: "100G"

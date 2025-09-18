@@ -8,7 +8,10 @@ locals {
     "jellyfin",
     "opencloud",
     "cloud",
-    "keycloak"
+    "keycloak",
+    "wopiserver",
+    "onlyoffice",
+    "companion"
       ]
 }
 
