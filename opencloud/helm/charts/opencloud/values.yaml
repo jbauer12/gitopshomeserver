@@ -734,4 +734,4 @@ ingress:
   # These are merged with any annotations from 'annotationsPreset' (if set).
   annotations:
     cert-manager.io/cluster-issuer: global-cluster-issuer-dev
-    nginx.ingress.kubernetes.io/proxy-body-size: "100G"
+    nginx.ingress.kubernetes.io/proxy-body-size: 100G
