@@ -91,6 +91,7 @@ resource "kubernetes_manifest" "global_cluster_issuer_dev" {
       }
     }
   }
+  depends_on = [null_resource.install_k3s_master, null_resource.join_k3s_worker]
 }
 
 

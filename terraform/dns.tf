@@ -7,7 +7,8 @@ locals {
     "prowlarr",
     "jellyfin",
     "opencloud",
-    "cloud"
+    "cloud",
+    "keycloak"
       ]
 }
 

@@ -16,7 +16,9 @@ resource "ssh_resource" "prerequisites_k3s_new" {
   commands = [
     "sudo mv /tmp/cmdline.txt /boot/firmware/cmdline.txt",
     "sudo chmod 0700 /boot/firmware/cmdline.txt",
-    "sudo apt install -y nfs-common"
+    # Doesnt work well silent installation on ubuntu 25.04
+    # Have to run sudo dpkg --configure -a before
+    "sudo apt install -y nfs-common",
   ]
 }
 
@@ -38,7 +40,7 @@ EOT
 }
 
 resource "null_resource" "join_k3s_worker" {
-  depends_on = [ssh_resource.prerequisites_k3s_new]
+  depends_on = [ssh_resource.prerequisites_k3s_new, null_resource.install_k3s_master]
   for_each   = toset(var.worker_nodes)
 
   provisioner "local-exec" {
