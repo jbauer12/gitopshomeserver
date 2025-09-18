@@ -727,11 +727,11 @@ ingress:
   # These annotations are added in addition to any defined in 'annotations'.
   # If there's a conflict, Helm will error. To avoid this, set annotationsPreset: ""
   # and define all annotations manually (including creating any required Middleware).
-  annotationsPreset: ""  # optional, default ""
+  annotationsPreset:   # optional, default ""
 
 
   # Custom annotations applied to all ingress resources.
   # These are merged with any annotations from 'annotationsPreset' (if set).
   annotations:
-    cert-manager.io/cluster-issuer: global-cluster-issuer-dev
     nginx.ingress.kubernetes.io/proxy-body-size: 100G
+    cert-manager.io/cluster-issuer: global-cluster-issuer-dev
