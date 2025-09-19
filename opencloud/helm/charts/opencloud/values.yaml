@@ -42,9 +42,9 @@ global:
   # TLS settings for secure connections
   tls:
     # Enable TLS (set to false when using gateway TLS termination externally)
-    enabled: false
+    enabled: true
     # secretName for TLS certificate
-    secretName: ""
+    secretName: "global-tls-secret"
 
   oidc:
     # OpenID Connect issuer URL. If set, overrides the default Keycloak internal issuer URL.
@@ -432,7 +432,7 @@ opencloud:
   insecure: true
   
   # Use existing secret for opencloud admin credentials (Note: secretKeyName must be adminPassword)
-  existingSecret: ""
+  existingSecret: "opencloud-secret"
   
   # Admin password
   # ignored if opencloud.existingSecret is set
@@ -526,7 +526,7 @@ opencloud:
         insecure: false
 
         # Use existing CA secret for nats credentials (Note: secretKeyName must be 'ca.crt' with the root CA certificate for NATS)
-        # Only used if certTrusted is false
+        # Only used if certTrusted is falseQ
         caSecretName : opencloud-nats-ca
 
   # =====================================================================

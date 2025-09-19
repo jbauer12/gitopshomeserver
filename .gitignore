@@ -9,3 +9,4 @@ opencloud/helm/charts/opencloud/templates/onlyoffice_secret.yaml
 opencloud/helm/charts/opencloud/templates/postgres_secret.yaml
 opencloud/helm/charts/opencloud/templates/rabbitmq_secret.yaml
 opencloud/helm/charts/opencloud/templates/key_cloak_secret.yaml
+opencloud/helm/charts/opencloud/templates/opencloud_secret.yaml
