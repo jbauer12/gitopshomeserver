@@ -5,3 +5,7 @@ terraform/terraform.tfstate.backup
 terraform/secret.tfvars
 **/secret.yaml
 tmp
+opencloud/key_cloak_secret.yaml
+opencloud/onlyoffice_secret.yaml
+opencloud/postgres_secret.yaml
+opencloud/rabbitmq_secret.yaml
