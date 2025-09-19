@@ -130,6 +130,8 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           env:
+            - name: STORAGE_USERS_POSIX_WATCH_FS
+              value: "true"
             # OpenCloud URL
             - name: OC_URL
               value: "https://{{ include "opencloud.domain" . }}"
