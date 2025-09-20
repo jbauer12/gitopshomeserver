@@ -8,19 +8,20 @@ spec:
   resources:
     requests:
       storage: 1Gi
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: opencloud-posixfs
+  name: cloud-opencloud-opencloud-posixfs
+  namespace: servarr
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteMany    # must match the PV
   resources:
     requests:
-      storage: 200Gi
-  volumeName: cloud-opencloud-opencloud-posixfs  
-  storageClassName: ""      
-
+      storage: 10Gi    # must be <= PV size
+  volumeName: cloud-opencloud-opencloud-posixfs  # exact PV name
+  storageClassName: ""       # important: no storageClass, otherwise provisioner makes a new dir
 
 
