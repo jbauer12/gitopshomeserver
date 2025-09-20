@@ -12,10 +12,15 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: music-pvc
+  name: opencloud-posixfs
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 200Gi
+  volumeName: cloud-opencloud-opencloud-posixfs  
+  storageClassName: ""      
+
+
+

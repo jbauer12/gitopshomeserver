@@ -24,7 +24,7 @@ spec:
         - name: downloaded-media
           mountPath: /media
         - name:  opencloud-posixfs
-          mountPath: /music
+          mountPath: /opencloud
         # env:
         # - name: PUID
         #   value: "1000"
