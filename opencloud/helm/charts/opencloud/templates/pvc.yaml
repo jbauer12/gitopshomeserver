@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.global.media_volume }}
+  name: cloud-storage-shared-with-jellyfin
 spec:
   accessModes:
     - ReadWriteMany
   resources:
     requests:
       storage: 100Gi
-  storageClassName: nfs-cloud 
+  storageClassName: nfs-cloud

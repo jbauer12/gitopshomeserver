@@ -658,7 +658,7 @@ opencloud:
         # Enable persistence
         enabled: true
         # Name of existing PVC to use (overrides all other persistence values)
-        existingClaim: ""
+        existingClaim: "cloud-storage-shared-with-jellyfin"
         # Size of the persistent volume for data
         size: 30Gi
         # Storage class
