@@ -41,4 +41,4 @@ spec:
           claimName: {{ .Values.global.media_volume }}
       - name: opencloud-posixfs
         persistentVolumeClaim:
-          claimName: cloud-opencloud-opencloud-posixfs
+          claimName: cloud-storage-jellyfin

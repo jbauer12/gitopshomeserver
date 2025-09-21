@@ -8,20 +8,18 @@ spec:
   resources:
     requests:
       storage: 1Gi
-
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cloud-opencloud-opencloud-posixfs
+  name: cloud-storage-jellyfin
   namespace: servarr
 spec:
   accessModes:
-    - ReadWriteMany    # must match the PV
+    - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi    # must be <= PV size
-  volumeName: cloud-opencloud-opencloud-posixfs  # exact PV name
-  storageClassName: ""       # important: no storageClass, otherwise provisioner makes a new dir
+      storage: 99Gi
+  storageClassName: nfs-cloud
 
 
