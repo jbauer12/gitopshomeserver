@@ -29,3 +29,41 @@ resource "helm_release" "storage_class_nfs" {
     null_resource.join_k3s_worker
   ]
 }
+
+resource "helm_release" "nfs_cloud" {
+  name       = "nfs-cloud"
+  repository = "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/"
+  chart      = "nfs-subdir-external-provisioner"
+  namespace  = "kube-system"
+  create_namespace = false
+
+  set {
+    name  = "nfs.server"
+    value = "192.168.178.73"
+  }
+
+  set {
+    name  = "nfs.path"
+    value = "/nas-shared"
+  }
+
+  set {
+    name  = "storageClass.name"
+    value = "nfs-cloud"
+  }
+
+  set {
+    name  = "storageClass.defaultClass"
+    value = "false"
+  }
+
+  set {
+    name  = "storageClass.pathPattern"
+    value = "cloud"
+  }
+
+  depends_on = [
+    null_resource.install_k3s_master,
+    null_resource.join_k3s_worker
+  ]
+}
