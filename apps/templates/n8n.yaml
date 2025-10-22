@@ -28,15 +28,19 @@ metadata:
 spec:
   project: default
   destination:
-    server: {{ .Values.spec.destination.server }} 
+    server: https://kubernetes.default.svc
     namespace: n8n
   source:
     repoURL: oci://8gears.container-registry.com/library/n8n
     chart: n8n
-    targetRevision: "1.0.0"  
+    targetRevision: "1.0.0"
     helm:
       valueFiles:
         - ./../n8n_values.yaml
+      # This tells ArgoCD/Helm to treat repoURL as OCI
+      parameters:
+        - name: "oci"
+          value: "true"
   syncPolicy:
     automated:
       prune: true
