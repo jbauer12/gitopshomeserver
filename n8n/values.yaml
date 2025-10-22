@@ -23,6 +23,8 @@ main:
     n8n:
       encryption_key: "eV1yS6qYwDkaasehi5LfLH3NYEP8Di9ivYTRYeGznjk="
 
+
+
   extraEnv:
     DB_POSTGRESDB_PASSWORD:
       valueFrom:
@@ -65,3 +67,5 @@ ingress:
     - secretName: n8n-ingress-tls
       hosts:
         - n8n.jonelli.uk
+valkey:
+  enabled: false
