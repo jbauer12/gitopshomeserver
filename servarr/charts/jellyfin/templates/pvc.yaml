@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: cloud-storage-jellyfin
+  name: storage-jellyfin
   namespace: servarr
 spec:
   accessModes:
@@ -20,6 +20,5 @@ spec:
   resources:
     requests:
       storage: 99Gi
-  storageClassName: nfs-cloud
 
 
