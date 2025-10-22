@@ -1,6 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  name: cnpg-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://cloudnative-pg.github.io/charts
+    chart: cloudnative-pg
+    targetRevision: 1.21.0 # Pick latest stable
+  destination:
+    namespace: cnpg-system
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
   name: n8n-helmchart
   namespace: argocd
 spec:
