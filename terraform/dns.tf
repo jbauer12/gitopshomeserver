@@ -11,7 +11,8 @@ locals {
     "keycloak",
     "wopiserver",
     "onlyoffice",
-    "companion"
+    "companion",
+    "n8n"
       ]
 }
 
