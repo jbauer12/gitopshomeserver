@@ -41,9 +41,9 @@ main:
   # The YAML entry db.postgresdb.password: my_secret is transformed DB_POSTGRESDB_password=bXlfc2VjcmV0
   # See https://docs.n8n.io/hosting/configuration/environment-variables/
   secret: {}
-    n8n:
-    # if you run n8n stateless, you should provide an encryption key here.
-      encryption_key: encryption
+    # n8n:
+    # # if you run n8n stateless, you should provide an encryption key here.
+    #   encryption_key: encryption
   #
   #    db:
   #      postgresdb:
