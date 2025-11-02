@@ -21,8 +21,9 @@ ingress:
   className: ""
   hosts:
     - host: n8n.jonelli.uk
-      paths: []
-  tls:
+      paths:
+        - path: /
+          pathType: Prefix  tls:
     - hosts:
         - n8n.jonelli.uk
       secretName: n8n-secret
