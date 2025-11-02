@@ -30,7 +30,15 @@ main:
     db:
       type: postgresdb
       postgresdb:
-        host: 192.168.0.52
+        host: postgres
+        user:       
+          valueFrom:
+            secretKeyRef:
+              name: postgres-credentials
+              key: POSTGRES_USER
+      ssl:
+        enabled: false
+
 
   # Dictionary for secrets, unlike config:, the values here will end up in the secret file.
   # The YAML entry db.postgresdb.password: my_secret is transformed DB_POSTGRESDB_password=bXlfc2VjcmV0
@@ -46,6 +54,11 @@ main:
 
   # Extra environmental variables, so you can reference other configmaps and secrets into n8n as env vars.
   extraEnv:
+    DB_POSTGRESDB_PASSWORD: 
+      valueFrom:
+        secretKeyRef:
+          name: postgres-credentials
+          key: POSTGRES_PASSWORD
   #    N8N_DB_POSTGRESDB_NAME:
   #      valueFrom:
   #        secretKeyRef:
