@@ -27,6 +27,8 @@ ingress:
 main:
   # See https://docs.n8n.io/hosting/configuration/environment-variables/ for all values.
   config: 
+    WEBHOOK_URL: https://n8n.jonelli.uk
+    N8N_PROXY_HOPS: "1"
     db:
       type: postgresdb
       postgresdb:
@@ -59,8 +61,6 @@ main:
         secretKeyRef:
           name: postgres-credentials
           key: POSTGRES_PASSWORD
-    WEBHOOK_URL: https://n8n.jonelli.uk
-    N8N_PROXY_HOPS: "1"
   #    N8N_DB_POSTGRESDB_NAME:
   #      valueFrom:
   #        secretKeyRef:
