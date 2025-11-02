@@ -21,7 +21,7 @@ ingress:
   className: ""
   hosts:
     - host: n8n.jonelli.uk
-      paths: "/"
+      paths: ["/"]
   tls:      
     - hosts:
         - n8n.jonelli.uk
