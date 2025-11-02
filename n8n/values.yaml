@@ -2,7 +2,7 @@
 image:
   repository: n8nio/n8n
   pullPolicy: IfNotPresent
-  tag: 1.81.4
+  tag: 1.117.3
 imagePullSecrets: []
 
 nameOverride:
