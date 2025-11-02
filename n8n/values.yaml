@@ -659,7 +659,9 @@ extraTemplateManifests: []
 # Bitnami Valkey configuration
 # https://artifacthub.io/packages/helm/bitnami/valkey
 valkey:
-  enabled: false
+  image:
+    repository: bitnami/valkey
+    tag: latest
   #architecture: standalone
   #
   #primary:
