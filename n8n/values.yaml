@@ -21,7 +21,9 @@ ingress:
   className: ""
   hosts:
     - host: n8n.jonelli.uk
-      paths: ImplementationSpecific
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:      
     - hosts:
         - n8n.jonelli.uk
