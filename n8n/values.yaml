@@ -29,6 +29,7 @@ main:
   config: 
     WEBHOOK_URL: https://n8n.jonelli.uk
     N8N_PROXY_HOPS: "1"
+    N8N_ENCRYPTION_KEY: "encryption"
     db:
       type: postgresdb
       postgresdb:
@@ -48,7 +49,7 @@ main:
   secret:
     # n8n:
     # # if you run n8n stateless, you should provide an encryption key here.
-    encryption_key: encryption
+    # encryption_key: encryption
 
     # db:
     #   postgresdb:
