@@ -660,7 +660,6 @@ extraTemplateManifests: []
 # https://artifacthub.io/packages/helm/bitnami/valkey
 valkey:
   image:
-    repository: docker.io/bitnami/valkey
     tag: latest
   #architecture: standalone
   #
