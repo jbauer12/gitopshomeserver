@@ -2,22 +2,17 @@
 image:
   repository: n8nio/n8n
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.117.3"
+  tag:"" #"1.117.3"
 imagePullSecrets: []
 
 nameOverride:
 fullnameOverride:
 hostAliases: []
-  #- ip: 8.8.8.8
-  #  hostnames:
-#    - service-example.local
 
 ingress:
   enabled: true
   annotations:
     cert-manager.io/cluster-issuer: "global-cluster-issuer"
-  # define a custom ingress class Name, like "traefik" or "nginx"
   className: "nginx"
   hosts:
     - host: n8n.jonelli.uk
@@ -31,12 +26,11 @@ ingress:
 # The config: {} dictionary is converted to environmental variables in the ConfigMap.
 main:
   # See https://docs.n8n.io/hosting/configuration/environment-variables/ for all values.
-  config: {}
-  #    n8n:
-  #    db:
-  #      type: postgresdb
-  #      postgresdb:
-  #        host: 192.168.0.52
+  config: 
+    db:
+      type: postgresdb
+      postgresdb:
+        host: 192.168.0.52
 
   # Dictionary for secrets, unlike config:, the values here will end up in the secret file.
   # The YAML entry db.postgresdb.password: my_secret is transformed DB_POSTGRESDB_password=bXlfc2VjcmV0
