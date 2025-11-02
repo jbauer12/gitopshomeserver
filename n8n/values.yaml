@@ -14,8 +14,9 @@ hostAliases: []
 #    - service-example.local
 
 ingress:
-  enabled: false
-  annotations: {}
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: "global-cluster-issuer"
   # define a custom ingress class Name, like "traefik" or "nginx"
   className: ""
   hosts:
@@ -659,8 +660,9 @@ extraTemplateManifests: []
 # Bitnami Valkey configuration
 # https://artifacthub.io/packages/helm/bitnami/valkey
 valkey:
-  image:
-    tag: latest
+  enabled: false
+  # image:
+  #   tag: latest
   #architecture: standalone
   #
   #primary:
