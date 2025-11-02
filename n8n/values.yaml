@@ -18,7 +18,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: "global-cluster-issuer"
   # define a custom ingress class Name, like "traefik" or "nginx"
-  className: ""
+  className: "nginx"
   hosts:
     - host: n8n.jonelli.uk
       paths:
