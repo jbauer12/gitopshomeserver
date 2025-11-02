@@ -16,7 +16,6 @@ metadata:
   name: postgres-volume-claim
   namespace: n8n
 spec:
-  storageClassName: <your-storageclass>
   accessModes:
     - ReadWriteOnce
   resources:
