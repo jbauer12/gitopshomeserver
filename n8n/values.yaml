@@ -45,10 +45,10 @@ main:
     # n8n:
     # # if you run n8n stateless, you should provide an encryption key here.
     #   encryption_key: encryption
-  #
-  #    db:
-  #      postgresdb:
-  #        password: 'big secret'
+
+    db:
+      postgresdb:
+        password: 'big secret'
 
   # Extra environmental variables, so you can reference other configmaps and secrets into n8n as env vars.
   extraEnv:
