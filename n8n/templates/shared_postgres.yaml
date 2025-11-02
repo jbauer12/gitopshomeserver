@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: postgres-pvc
+  name: postgres-pvc2
   namespace: n8n
 spec:
   accessModes:
@@ -48,7 +48,7 @@ spec:
       volumes:
       - name: postgresdata
         persistentVolumeClaim:
-          claimName: postgres-pvc
+          claimName: postgres-pvc2
 
 ---
 apiVersion: v1
