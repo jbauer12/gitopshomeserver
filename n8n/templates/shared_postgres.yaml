@@ -4,10 +4,10 @@ metadata:
   name: postgres-credentials
   namespace: n8n
 type: Opaque
-data:
-  POSTGRES_DB: cHNfZGI=         # base64 of “ps_db”
-  POSTGRES_USER: cHNfdXNlcg==   # base64 of “ps_user”
-  POSTGRES_PASSWORD: U2VjdXJlUGFzc3dvcmQ=  # base64 of “SecurePassword”
+stringData:
+  POSTGRES_DB: postgres        # base64 of “ps_db”
+  POSTGRES_USER: postgres  # base64 of “ps_user”
+  POSTGRES_PASSWORD: “SecurePassword”=  # base64 of “SecurePassword”
 
 ---
 apiVersion: v1
