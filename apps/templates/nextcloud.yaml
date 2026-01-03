@@ -27,7 +27,7 @@ spec:
         REDIS_PASSWORD: password # TODO! This needs to be a unique and good password!
         SIGNALING_SECRET: password # TODO! This needs to be a unique and good password!
         TALK_INTERNAL_SECRET: password # TODO! This needs to be a unique and good password!
-        TIMEZONE: Europe/Berlin          # TODO! This is the timezone that your containers will use.
+        TIMEZONE: Europe/Berlin # TODO! This is the timezone that your containers will use.
         TURN_SECRET: password # TODO! This needs to be a unique and good password!
         WHITEBOARD_SECRET: password # TODO! This needs to be a unique and good password!
 
