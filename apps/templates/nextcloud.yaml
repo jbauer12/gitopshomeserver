@@ -7,13 +7,22 @@ spec:
   project: default
 
   destination:
-    server: {{ .Values.spec.destination.server }}
+    server: https://kubernetes.default.svc
     namespace: nextcloud
 
   source:
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: main
-    path: nextcloud
+    repoURL: https://nextcloud.github.io/all-in-one/
+    chart: nextcloud-aio-helm-chart
+    targetRevision: 12.1.4
+
+    helm:
+      valueFiles:
+        - /nextcloud-aio/values.yaml  # <-- YOUR values file from your Git repo
+
+  sources:
+    - repoURL: https://your.git.repo
+      targetRevision: main
+      ref: values
 
   syncPolicy:
     automated:
