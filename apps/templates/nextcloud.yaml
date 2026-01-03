@@ -11,13 +11,13 @@ spec:
   source:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: main
-    path: nextcloud           
+    #path: nextcloud           
     helm:
       releaseName: nextcloud-aio
       chart: nextcloud-aio-helm-chart
       repoURL: https://nextcloud.github.io/all-in-one/
       valueFiles:
-        - values.yaml
+        - nextcloud/values.yaml
   syncPolicy:
     automated:
       prune: true
