@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://nextcloud.github.io/all-in-one/
     chart: nextcloud-aio-helm-chart                  
-    targetRevision: latest                             
+    targetRevision: 12.1.4                             
     helm:
       releaseName: nextcloud-aio
       values: |
