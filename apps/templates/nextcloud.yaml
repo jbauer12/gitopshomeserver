@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nextcloud
+  name: cloud
   namespace: argocd
 spec:
   project: default
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: nextcloud
+    namespace: default
 
   source:
     repoURL: https://nextcloud.github.io/all-in-one/
@@ -92,12 +92,6 @@ spec:
         MAIL_DOMAIN:         # (not set by default): Set a different domain for the emails than the domain where Nextcloud is installed.
         TALK_MAX_STREAM_BITRATE: "1048576"         # This allows to adjust the max stream bitrate of the talk hpb
         TALK_MAX_SCREEN_BITRATE: "2097152"         # This allows to adjust the max stream bitrate of the talk hpb
-
-          
-          
-          
-  
-  
   syncPolicy:
     automated:
       prune: true
