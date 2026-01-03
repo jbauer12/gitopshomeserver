@@ -20,7 +20,7 @@ spec:
         - /nextcloud-aio/values.yaml  # <-- YOUR values file from your Git repo
 
   sources:
-    - repoURL: https://your.git.repo
+    - repoURL: {{ .Values.spec.source.repoURL }}
       targetRevision: main
       ref: values
 
