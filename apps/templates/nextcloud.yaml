@@ -93,7 +93,11 @@ spec:
         TALK_MAX_STREAM_BITRATE: "1048576"         # This allows to adjust the max stream bitrate of the talk hpb
         TALK_MAX_SCREEN_BITRATE: "2097152"         # This allows to adjust the max stream bitrate of the talk hpb
 
-
+        postgresql:
+          enabled: true
+          postgresqlUsername: oc_nextcloud
+          postgresqlPassword: password
+          postgresqlDatabase: nextcloud_database
   syncPolicy:
     automated:
       prune: true
