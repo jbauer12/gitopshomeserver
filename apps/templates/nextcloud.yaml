@@ -16,3 +16,28 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nextcloud-aio
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: {{ .Values.spec.destination.server }}
+    namespace: nextcloud
+  source:
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: main
+    path: nextcloud
+    helm:
+      releaseName: nextcloud-aio
+      chart: nextcloud-aio-helm-chart
+      repoURL: https://nextcloud.github.io/all-in-one/
+      valueFiles:
+        - values.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
