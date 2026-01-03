@@ -5,19 +5,22 @@ metadata:
   namespace: argocd
 spec:
   project: default
+
   destination:
     server: {{ .Values.spec.destination.server }}
     namespace: nextcloud
+
   source:
-    repoURL: {{ .Values.spec.source.repoURL }}
+    repoURL: {{ .Values.spec.source.repoURL }}   # Your Git repo
     targetRevision: main
-    path: nextcloud
+    path: nextcloud                              # folder that contains values.yaml
     helm:
       releaseName: nextcloud-aio
-      chart: nextcloud-aio-helm-chart
+      chart: nextcloud-aio-helm-chart            # external chart
       repoURL: https://nextcloud.github.io/all-in-one/
       valueFiles:
-        - values.yaml
+        - values.yaml                             # must be inside your repo
+
   syncPolicy:
     automated:
       prune: true
