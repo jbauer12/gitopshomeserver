@@ -49,3 +49,6 @@ variable "zone_id" {
   sensitive   = true
   description = "Cloudflare zone ID"
 }
+variable "cloudflare_account_id" {
+  
+}

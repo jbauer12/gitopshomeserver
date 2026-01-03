@@ -10,3 +10,6 @@ opencloud/helm/charts/opencloud/templates/postgres_secret.yaml
 opencloud/helm/charts/opencloud/templates/rabbitmq_secret.yaml
 opencloud/helm/charts/opencloud/templates/key_cloak_secret.yaml
 opencloud/helm/charts/opencloud/templates/opencloud_secret.yaml
+!n8n/templates/secret.yaml
+n8n/templates/postgres-secret.yaml
+n8n/templates/cloudflare_secret.yaml
