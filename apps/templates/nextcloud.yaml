@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nextcloud2
+  name: nextcloud
   namespace: argocd
 spec:
   project: default
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: nextcloud2
+    namespace: default
 
   source:
     repoURL: https://nextcloud.github.io/helm/
