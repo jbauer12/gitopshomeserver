@@ -27,7 +27,7 @@ spec:
         REDIS_PASSWORD: password
         SIGNALING_SECRET: password
         TALK_INTERNAL_SECRET: password
-        TIMEZONE: Europe/Berlin          # TODO! This is the timezone that your containers will use.
+        TIMEZONE: Europe/Berlin
         TURN_SECRET: password
         WHITEBOARD_SECRET: password
 
@@ -92,9 +92,7 @@ spec:
         MAIL_DOMAIN:         # (not set by default): Set a different domain for the emails than the domain where Nextcloud is installed.
         TALK_MAX_STREAM_BITRATE: "1048576"         # This allows to adjust the max stream bitrate of the talk hpb
         TALK_MAX_SCREEN_BITRATE: "2097152"         # This allows to adjust the max stream bitrate of the talk hpb
-        POSTGRES_USER: oc_nextcloud
-        POSTGRES_PASSWORD: password
-        POSTGRES_DB: nextcloud_database
+        POSTGRES_USER: nextcloud
 
 
   syncPolicy:
