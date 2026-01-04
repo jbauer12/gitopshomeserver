@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cloud
+  name: cloud_default
   namespace: argocd
 spec:
   project: default
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: cloud
+    namespace: default
 
   source:
     repoURL: https://nextcloud.github.io/all-in-one/
@@ -21,14 +21,15 @@ spec:
         FULLTEXTSEARCH_PASSWORD: password
         IMAGINARY_SECRET: password
         NC_DOMAIN: nextcloud.jonelli.uk
-        NEXTCLOUD_PASSWORD: password # TODO! This is the password of the initially created Nextcloud admin with username admin.
-        ONLYOFFICE_SECRET: password # TODO! This needs to be a unique and good password!
-        RECORDING_SECRET: password # TODO! This needs to be a unique and good password!
-        REDIS_PASSWORD: password # TODO! This needs to be a unique and good password!
-        SIGNALING_SECRET: password # TODO! This needs to be a unique and good password!
-        TALK_INTERNAL_SECRET: password # TODO! This needs to be a unique and good password!
-        TURN_SECRET: password # TODO! This needs to be a unique and good password!
-        WHITEBOARD_SECRET: password # TODO! This needs to be a unique and good password!
+        NEXTCLOUD_PASSWORD: password
+        ONLYOFFICE_SECRET: password
+        RECORDING_SECRET: password
+        REDIS_PASSWORD: password
+        SIGNALING_SECRET: password
+        TALK_INTERNAL_SECRET: password
+        TIMEZONE: Europe/Berlin          # TODO! This is the timezone that your containers will use.
+        TURN_SECRET: password
+        WHITEBOARD_SECRET: password
 
         CLAMAV_ENABLED: "no"          # Setting this to "yes" (with quotes) enables the option in Nextcloud automatically.
         COLLABORA_ENABLED: "no"          # Setting this to "yes" (with quotes) enables the option in Nextcloud automatically.
@@ -70,7 +71,7 @@ spec:
         REDIS_STORAGE_SIZE: 1Gi       # You can change the size of the redis volume that default to 1Gi with this value
         TALK_RECORDING_STORAGE_SIZE: 1Gi       # You can change the size of the talk-recording volume that default to 1Gi with this value
 
-        NAMESPACE: cloud        # By changing this, you can adjust the namespace of the installation which allows to install multiple instances on one kubernetes cluster
+        NAMESPACE: default        # By changing this, you can adjust the namespace of the installation which allows to install multiple instances on one kubernetes cluster
         NAMESPACE_DISABLED: "no"        # By setting this to "yes", you can disabled the creation of the namespace so that you can use a pre-created one
         NETWORK_POLICY_ENABLED: "no"        # By setting this to "yes", you can enable a network policy that limits network access to the same namespace. Except the Web server service which is reachable from all endpoints.
         SUBSCRIPTION_KEY:        # This allows to set the Nextcloud Enterprise key via ENV
@@ -91,6 +92,7 @@ spec:
         MAIL_DOMAIN:         # (not set by default): Set a different domain for the emails than the domain where Nextcloud is installed.
         TALK_MAX_STREAM_BITRATE: "1048576"         # This allows to adjust the max stream bitrate of the talk hpb
         TALK_MAX_SCREEN_BITRATE: "2097152"         # This allows to adjust the max stream bitrate of the talk hpb
+
   syncPolicy:
     automated:
       prune: true
