@@ -21,24 +21,22 @@ spec:
           host: nextcloud.jonelli.uk
           username: admin
           password: changeme
-
         image:
           registry: docker.io
           repository: library/nextcloud
           flavor: apache
           tag: latest
-
         internalDatabase:
           enabled: true
-
+          persistence:
+            enabled: true
+            size: 8Gi
         persistence:
           enabled: true
           size: 8Gi
-
         service:
           type: ClusterIP
           port: 8080
-
         ingress:
           enabled: false
   syncPolicy:
