@@ -28,12 +28,8 @@ spec:
           tag: latest
         internalDatabase:
           enabled: true
-          persistence:
-            enabled: true
-            size: 8Gi
         persistence:
-          enabled: true
-          size: 8Gi
+          enabled: false
         service:
           type: ClusterIP
           port: 8080
