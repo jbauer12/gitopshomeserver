@@ -23,9 +23,9 @@ spec:
           password: changeme
         image:
           registry: docker.io
-          repository: linuxserver/nextcloud
-          flavor: apache
-          tag: latest
+          repository: library/nextcloud
+          flavor: fpm
+          tag: fpm
         internalDatabase:
           enabled: true
         persistence:
