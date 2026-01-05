@@ -23,7 +23,7 @@ spec:
           password: changeme
         image:
           registry: docker.io
-          repository: library/nextcloud
+          repository: linuxserver/nextcloud
           flavor: apache
           tag: latest
         internalDatabase:
